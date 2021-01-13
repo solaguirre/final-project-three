@@ -10,4 +10,5 @@ module.exports = function () {
     } else if (process.env.NODE_ENV !== 'production' && (process.env.LOCALDB_URL === undefined || process.env.LOCALDB_URL === '')) {
         throw new Error('No connection URL supplied for local DB');
     }
+
 };
