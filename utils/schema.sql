@@ -127,3 +127,4 @@ class SettingsMenu extends React.Component {
     );
   }
 }
+
