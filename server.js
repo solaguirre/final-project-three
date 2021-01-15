@@ -42,7 +42,15 @@ app.get('*', (req, res) => {
 });
 
 db.sequelize.sync({force:false}).then(function () {
+    if (process.env.NODE_ENV === 'test') {
+        db.User.create({ email: 'test@test.com', password: 'password' }).then(
+            () => {
+                console.log('Test User Created');
+            }
+        );
+    }
     app.listen(PORT, function () {
         console.log(`Server now on port ${PORT}!`);
     });
 });
+
