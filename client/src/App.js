@@ -1,3 +1,4 @@
+
 import Menu from './components/Menu';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
@@ -7,7 +8,6 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -35,7 +35,7 @@ function App() {
     
     return (
         <Router>
-            <Menu />
+
             <Switch>
                 <Route exact path='/'>
                     <Home />

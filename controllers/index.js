@@ -12,3 +12,4 @@ router.use('/api/auth', authRoutes);
 
 // Export the router
 module.exports = router;
+
