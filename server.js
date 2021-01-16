@@ -92,6 +92,7 @@ app.post('/create-checkout session', async (req, res) => {
   res.json({ id: session.id });
 });
 
+
 // ****** does it need this more than once??
 app.listen(4242, () => console.log('Running on port 4242'));
 
