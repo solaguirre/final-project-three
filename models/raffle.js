@@ -1,5 +1,8 @@
+
+
+
 module.exports = function (sequelize, DataTypes) {
-    const Raffle = sequelize.define('Raffle', {
+    const Raffles = sequelize.define('Raffle', {
         itemName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -24,18 +27,21 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        // arrayOfEntries: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     len: [1]
-        // },
+
         winnerOfRaffle: {
             type: DataTypes.STRING,
-            allowNull: true,    
-        }
+            allowNull: true,
+        },
     });
+    Raffles.associate = (models) => {
+        Raffles.belongsToMany(models.User, {
+            through: 'user_raffles',
+            as: 'raffles',
+            foreignKey: 'raffle_id'
+        });
+    };
 
-    
+    // db.Raffle.insert({itemName: '$5 Amazon Card', code:'123456789', minimumEntries: 1, maximumEntries: 5, currentEntries: 2, winnerOfRaffle: ''});
 
-    return Raffle;
+    return Raffles;
 };

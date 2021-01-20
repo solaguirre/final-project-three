@@ -9,7 +9,12 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [3]
-            }
+            },
+            defaultValue:'defaultValue'
+        },
+        password: {
+            type:DataTypes.STRING,
+            allowNull: false
         },
         email: {
             type: DataTypes.TEXT,
@@ -19,8 +24,17 @@ module.exports = function (sequelize, DataTypes) {
         tickets: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            defaultValue:3
         },
     });
+    User.associate = (models) => {
+        User.belongsToMany(models.Raffles, {
+            through: 'user_raffles',
+            as: 'users',
+            foreignKey: 'user_id'
+        });
+    };
+
     {
         // This forces any default 'User' to exclude the password when we query them;
         // this way we don't expose even a hashed password
