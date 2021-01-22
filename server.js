@@ -19,30 +19,24 @@ const compression = require('compression');
 // Creating express app
 const app = express();
 
-const stripe = require('stripe')('sk_test_51I9ilkLEoVxAcGevEaTlvbhBbUnlWxqWqVBfkzSBhx9AP5q4rhtUtwF1rkqZHbH19XYbBujvyWMDFau466l6XivY00wUf0WFzF');
-
-app.use(express.static('.'));
+if (process.env.NODE_ENV !== 'production') {
+    app.use(morgan('dev'));
+}
+// enable compression middleware
+app.use(compression());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-const calculateOrderAMount = items => {
-   // Replace this constant with a calculation of the order's amount
-  // Calculate the order total on the server to prevent
-  // people from directly manipulating the amount on the client
-  return 1400;
-
-};
-
-app.post("/create-payment-intent", async (req, res) => {
-  const { items } = req.body;
-   // Create a PaymentIntent with the order amount and currency
-   const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
-    currency: "usd"
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
+// Add all our backend routes
+app.use(routes);
+// Send all other requests to react app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
-
-res.send({
-  clientSecret: paymentIntent.client_secret
+db.sequelize.sync({ force: false }).then(function () {
+    app.listen(PORT, function () {
+        console.log(`Server now on port ${PORT}!`);
+    });
 });
-});
-
-app.listen(4242, () => console.log('Node server listening on port 4242'));

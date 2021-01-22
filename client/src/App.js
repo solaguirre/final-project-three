@@ -11,7 +11,7 @@ import Notes from './pages/Notes';
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from './pages/CheckoutForm';
+import Checkout from './pages/Checkout';
 
 const promise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
 
@@ -58,7 +58,7 @@ function App() {
                 <PrivateRoute exact path='/checkout'>
                     <div className="App">
                         <Elements stripe={promise}>
-                            <CheckoutForm />
+                            <Checkout />
                         </Elements>
                     </div>
                 </PrivateRoute>
