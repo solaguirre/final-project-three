@@ -30,19 +30,19 @@ const Menu = () => {
 
             </ul> */}
 
-<Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#home">Weffle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link><Link to="/">Home</Link></Nav.Link>
                         <Nav.Link href="#link">About</Nav.Link>
                         <Nav.Link href="#link">Host</Nav.Link>
                         <Nav.Link href="#link">Winners</Nav.Link>
                         <NavDropdown title="Options" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.3">Login</NavDropdown.Item>
+                            <NavDropdown.Item ><Link to="/login">Login</Link></NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Sign Up</NavDropdown.Item>
+                            <NavDropdown.Item><Link to="/signup">Sign Up</Link></NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Form inline>

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/auth';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const Signup = () => {
     const { signup, isLoggedIn } = useAuth();
@@ -40,7 +42,7 @@ const Signup = () => {
             <h2>
                 Signup Page
             </h2>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
                 <label htmlFor='email'>Email:</label>
                 <input
                     name='email'
@@ -65,7 +67,29 @@ const Signup = () => {
             </form>
             <p>
                 Already have an account? <button onClick={() => toggleRedirect(true)}>Login Here</button>
-            </p>
+            </p> */}
+
+            <Form>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+    </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Text id="passwordHelpBlock" muted>
+      Must be 8-20 characters long.
+    </Form.Text>
+                </Form.Group>
+                <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Receive Updates" />
+                </Form.Group>
+                <Button variant="outline-dark">Submit</Button>
+            </Form>
 
         </div>
     );
