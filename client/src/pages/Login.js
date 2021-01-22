@@ -67,21 +67,23 @@ const Login = () => {
             <p>
                 Need an account? <button onClick={() => toggleRedirect(true)}>Signup Here</button>
             </p> */}
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
 
                 </Form.Group>
 
                 <Button variant="outline-dark">Submit</Button>
             </Form>
-
+            <p>
+                Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
+            </p>
         </div >
     );
 };

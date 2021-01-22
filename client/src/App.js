@@ -1,5 +1,5 @@
 
-import Menu from './components/Menu';
+// import Menu from './components/Menu';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
-
 
 
 function App() {
