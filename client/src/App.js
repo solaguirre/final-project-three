@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
-
+import Menu from './components/Menu';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -34,7 +34,7 @@ function App() {
     
     return (
         <Router>
-
+            <Menu></Menu>
             <Switch>
                 <Route exact path='/'>
                     <Home />
