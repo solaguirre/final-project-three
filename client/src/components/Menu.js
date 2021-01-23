@@ -5,11 +5,11 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import useAuth from '../hooks/auth';
+// import useAuth from '../hooks/auth';
 
 
 const Menu = () => {
-    const { isLoggedIn, logout, getProfile } = useAuth();
+    // const { isLoggedIn, logout, getProfile } = useAuth();
     return (
         <div>
             {/* <h3>Navbar</h3> */}
@@ -30,9 +30,9 @@ const Menu = () => {
 
             </ul> */}
 
-        <Navbar bg="dark" variant="dark">
+            <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#home">Weffle</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link><Link to="/">Home</Link></Nav.Link>

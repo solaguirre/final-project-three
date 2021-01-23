@@ -39,16 +39,19 @@ module.exports = function (sequelize, DataTypes) {
         // This forces any default 'User' to exclude the password when we query them;
         // this way we don't expose even a hashed password
         defaultScope: {
-            attributes: { exclude: ['password'] }
+            attributes: {
+                exclude: ['password'];
+            }
         }
         // If you want to show the password, for whatever reason, we expose with:
         // db.User.scope('withPassword').findAll() etc
         scopes: {
             withPassword: {
-                attributes: { }
+                // eslint-disable-next-line no-empty
+                attributes: {}
             }
         }
-    };
+    }
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);

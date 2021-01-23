@@ -1,6 +1,5 @@
 
 
-
 module.exports = function (sequelize, DataTypes) {
     const Raffles = sequelize.define('Raffle', {
         itemName: {
