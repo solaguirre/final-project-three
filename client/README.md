@@ -48,68 +48,7 @@ The structure of the client application, as produced, is replicated below, with 
 * package.json
 * README.md
 ```
-### Structure Explanation
 
-- public: The public folder. Any static files you want to be served on the client side, i.e. images need to be in here.
-    * favicon.ico: The favicon. Change it!
-    * index.html: The only html we need! If you need to link a CSS over CDN, put it here!
-    * manifest.json
-    * robots.txt
-- **src**: The code for our react app. Anything that's not in **App.js** should be in here.
-    - **components**: All of our more specific components, i.e., not pages.
-        * **Navbar.js**: A rudimentary navbar. Note how I use ```<Link>``` elements, *not* ```<a>``` tags! Use an ```<a>``` tag at your own peril.
-        * **NoteForm.js**: A simple form for notes identical to our in class examples - only exception is the 'didSubmit', which lets us trigger a refresh nicely in NoteForm's parent. 
-    - hooks: The folder for our custom hooks
-        * **auth.js**: Our authentication handler! It's rudimentary, but it works. See the hook itself for more detailed documentation. Call it in a components, as you can see in the login/signup pages or App.js to use anything from it.
-    - pages: All of our 'top-level' components for pages. Highly recommend you follow this pattern!
-        * **Home.js**: Nothing really here, just a landing page.
-        * **Login.js**: Very complex, and basically doesn't need to be touched, except for styling. Highly recommend you leave it intact.
-            * First, we are using the history and location hooks from react-router-dom. This is very important, because we can now see *where* someone came from before they hit login/signup.
-            * Notice the handleSubmit - after we submit, we can use history to change the current page with the ```history.replace``` call.
-            * Next, before the return, we have our two redirects. If the user is already logged in, i.e., maybe a mistake refresh, or something else, this dumps them back to where they came from, or if they accidentally typed in the url or something.
-        * **Notes.js**: Similar to any other page we've made for displaying X things, except we also have a simple state we pass down into our form, so we can refresh the page to see a submitted note.
-        * **Signup.js**: See login.js notes.
-    * App.css: Top level css. Left it blank for you to have fun!
-    * App.js: Our application!
-        * Has our private route wrapper set up down at bottom
-        * Has all of our pages and routes, and you should probably keep them here.
-        * Has some fun stuff for Axios at the top - 
-            * Sets the auth token to the back end on load, if it exists
-            * Adds a nice 'if token bad, logout' to all API calls.
-    * index.js: Straight from CRA.
-* .eslintignore: Ignoring various things that break lint.
-* .eslintrc.json: Hardcore rules for hardcore coders!
-* .gitignore: Ignoring common problem files. Before you finish, you should probably commit the lock.
-* package.json: Our package.json. 
-* README.md: This file.
-
-## How to modify:
-
-### I need to create a new page
-
-* Create a new component to wrap the page in /pages
-* Add stuff to it
-* Add the ```<Route>``` in App.js
-
-### I need to add a new library to the client
-
-* ```npm install``` it in the *client*
-* If you run the install at the root level, it adds to the server
-
-### I want to create a new component
-
-* Create the new components in /components
-* Import it where you need it
-
-### I need data about the current user
-
-* use the ```useAuth``` hook.
-* the getProfile method will return the current user.
-
-### I need to make an API call
-
-* Check out the Notes page, for the useEffect, or you can do it with classes
-* Notice that include on my api call? Interesting!
 
 
 ## Deployment
