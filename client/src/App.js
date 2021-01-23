@@ -1,4 +1,5 @@
-import Navbar from './components/Navbar';
+
+// import Menu from './components/Menu';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -7,6 +8,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
+
 // import Sucess from './pages/Success'
 
 import React from 'react';
@@ -15,6 +17,9 @@ import { Elements } from '@stripe/react-stripe-js';
 import Checkout from './pages/Checkout';
 
 const promise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
+
+import Menu from './components/Menu';
+
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -40,7 +45,7 @@ function App() {
 
     return (
         <Router>
-            <Navbar />
+            <Menu></Menu>
             <Switch>
                 <Route exact path='/'>
                     <Home />
