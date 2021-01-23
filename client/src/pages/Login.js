@@ -3,6 +3,7 @@ import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/auth';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import './home.css';
 
 const Login = () => {
     const { login, isLoggedIn } = useAuth();
@@ -38,10 +39,13 @@ const Login = () => {
 
     return (
         <div>
-            <h2>
-                Login Page
-            </h2>
-            {/* <form onSubmit={handleSubmit}>
+
+            <div className="container">
+                <div className="ticket">
+                    <h2>
+                        Login Page
+                    </h2>
+                    {/* <form onSubmit={handleSubmit}>
                 <label htmlFor='email'>Email:</label>
                 <input
                     name='email'
@@ -67,24 +71,27 @@ const Login = () => {
             <p>
                 Need an account? <button onClick={() => toggleRedirect(true)}>Signup Here</button>
             </p> */}
-            <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
-                </Form.Group>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
+                        </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
 
-                </Form.Group>
+                        </Form.Group>
 
-                <Button variant="outline-dark">Submit</Button>
-            </Form>
-            <p>
-                Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
-            </p>
+                        <Button variant="outline-dark">Submit</Button>
+                    </Form>
+                    <p>
+                        Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
+                    </p>
+                </div>
+            </div >
         </div >
+
     );
 };
 
