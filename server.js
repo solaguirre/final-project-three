@@ -19,12 +19,9 @@ const compression = require('compression');
 // Creating express app
 const app = express();
 
-// Set up our middleware!
-// Dev Logging. Only works in test or development
 if (process.env.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
 }
-
 // enable compression middleware
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
@@ -32,25 +29,14 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
-
 // Add all our backend routes
 app.use(routes);
-
 // Send all other requests to react app
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
-
-db.sequelize.sync({force:false}).then(function () {
-    if (process.env.NODE_ENV === 'test') {
-        db.User.create({ email: 'test@test.com', password: 'password' }).then(
-            () => {
-                console.log('Test User Created');
-            }
-        );
-    }
+db.sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
         console.log(`Server now on port ${PORT}!`);
     });
 });
-
