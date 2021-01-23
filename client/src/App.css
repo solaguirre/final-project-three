@@ -1,9 +1,6 @@
 
 /* code from stripe app.css */
-#root {
-    display: flex;
-    align-items: center;
-  }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;

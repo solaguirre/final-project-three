@@ -1,6 +1,6 @@
 
 // import Navbar from 'react-bootstrap/Navbar';
-// import Menu from '../components/Menu'
+// import Menu from '../components/Menu';
 import Carousel from 'react-bootstrap/Carousel';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -12,7 +12,6 @@ function Home() {
 
     return (
         <div>
-           
             <div className="container">
                 <div className="Section-1">
                     <div className="ticket">
@@ -24,7 +23,6 @@ function Home() {
                                 <FormControl type="text" placeholder="Search Raffles" className="mr-sm-2" />
                                 <Button variant="outline-dark">Search</Button>
                             </Form>
-
                         </div>
                     </div>
                 </div>

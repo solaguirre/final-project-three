@@ -6,7 +6,7 @@ const isAuthenticated = require('../utils/middleware').isAuthenticated;
  * User Read - All
  */
 
-router.get('/', isAuthenticated, function(req, res) {
+router.get('/', isAuthenticated, function (req, res) {
     db.Raffle.findAll(req.query)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
@@ -15,7 +15,7 @@ router.get('/', isAuthenticated, function(req, res) {
 /**
  * User Read - One
  */
-router.get('/:id', isAuthenticated, function(req, res) {
+router.get('/:id', isAuthenticated, function (req, res) {
     db.Raffle.findByPk(req.params.id)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
@@ -26,18 +26,23 @@ router.get('/:id', isAuthenticated, function(req, res) {
  * Notice how we are using the 'withPassword' scope.
  * This allows for us to modify a user's password, as defined in the User model
  */
-router.post('/', function(req, res) {
+router.post('/', function (req, res) {
+    const raffle = req.body;
+    if (raffle.max < raffle.min) {
+        raffle.max = raffle.min;
+    }
     db.Raffle
-        .create(req.body)
+        .create(raffle)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+
 });
 
 /**
  * User - Update
  */
-router.put('/:id', isAuthenticated, function(req, res) {
-    db.Raffle.update(req.body, { where: { id: req.params.id }})
+router.put('/:id', isAuthenticated, function (req, res) {
+    db.Raffle.update(req.body, { where: { id: req.params.id } })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
@@ -45,8 +50,8 @@ router.put('/:id', isAuthenticated, function(req, res) {
 /**
  * User - Delete
  */
-router.delete('/:id', isAuthenticated, function(req, res) {
-    db.Raffle.destroy({ where: { id: req.params.id }})
+router.delete('/:id', isAuthenticated, function (req, res) {
+    db.Raffle.destroy({ where: { id: req.params.id } })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });

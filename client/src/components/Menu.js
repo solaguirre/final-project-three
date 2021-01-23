@@ -12,24 +12,6 @@ const Menu = () => {
     // const { isLoggedIn, logout, getProfile } = useAuth();
     return (
         <div>
-            {/* <h3>Navbar</h3> */}
-            {/* <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to='/notes'>Notes</Link></li>
-                {isLoggedIn() ?
-                    <>
-                        <li>Hello, {getProfile().email}</li>
-                        <li><Link onClick={() => logout()} to='/'>Logout</Link></li>
-                    </>
-                    :
-                    <>
-                        <li><Link to="/signup">Signup</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                    </>
-                }
-
-            </ul> */}
-
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#home">Weffle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
