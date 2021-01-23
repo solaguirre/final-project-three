@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
+// import Sucess from './pages/Success'
 
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
