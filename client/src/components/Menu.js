@@ -38,10 +38,11 @@ const Menu = () => {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="#link">About</Nav.Link>
                         <Nav.Link href="#link">Host</Nav.Link>
-                        <Nav.Link href="#link">Winners</Nav.Link>
                     </Nav>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/signup">Signup</Nav.Link>
+                    <Nav className="mr-auto-align">
+                        <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link href="/signup">Signup</Nav.Link>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </div>
