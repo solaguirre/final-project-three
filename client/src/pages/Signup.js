@@ -88,7 +88,7 @@ const Signup = () => {
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Receive Updates" />
                 </Form.Group>
-                <Button variant="outline-dark">Submit</Button>
+                <Button type="submit" variant="outline-dark">Submit</Button>
             </Form>
             <p>
                 Already have an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Login Here</Button>

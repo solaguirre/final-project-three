@@ -9,7 +9,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
 import Menu from './components/Menu';
-
+import CreateRaffle from './pages/CreateRaffle';
 function App() {
     // Pull auth token from storage, in case you refresh the page
     const { getToken, logout } = useAuth();
@@ -47,6 +47,9 @@ function App() {
                 </Route>
                 <PrivateRoute exact path='/notes'>
                     <Notes />
+                </PrivateRoute>
+                <PrivateRoute exact path ='/createraffle'>
+                    <CreateRaffle />
                 </PrivateRoute>
             </Switch>
         </Router>
