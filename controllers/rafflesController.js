@@ -1,57 +1,54 @@
 const db = require('../models');
 const router = require('express').Router();
 const isAuthenticated = require('../utils/middleware').isAuthenticated;
+
 /**
- * Note - Read All
+ * User Read - All
  */
+
 router.get('/', isAuthenticated, function(req, res) {
-    // we can pass in things in the query of a REST call!
-    db.Note.findAll(req.query)
+    db.Raffle.findAll(req.query)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
 
 /**
- * Note - Read One
+ * User Read - One
  */
 router.get('/:id', isAuthenticated, function(req, res) {
-    db.Note.findByPk(req.params.id)
+    db.Raffle.findByPk(req.params.id)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
 
 /**
- * Note - Create
- * Notice how we are also taking in the User Id! Important!
- * We need the isAuthenticated middleware in the route to have a user in the request
+ * User - Create
+ * Notice how we are using the 'withPassword' scope.
+ * This allows for us to modify a user's password, as defined in the User model
  */
-router.post('/', isAuthenticated, function(req, res) {
-    db.Note.create({
-        UserId: req.user.id,
-        ...req.body
-    })
+router.post('/', function(req, res) {
+    db.Raffle
+        .create(req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
 
 /**
- * Note - Update
+ * User - Update
  */
 router.put('/:id', isAuthenticated, function(req, res) {
-    db.Note.update(req.body, { where: { id: req.params.id }})
+    db.Raffle.update(req.body, { where: { id: req.params.id }})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
 
 /**
- * Note - Delete
+ * User - Delete
  */
 router.delete('/:id', isAuthenticated, function(req, res) {
-    db.Note.destroy({ where: { id: req.params.id }})
+    db.Raffle.destroy({ where: { id: req.params.id }})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
 
-// Defining methods for the booksController
 module.exports = router;
-

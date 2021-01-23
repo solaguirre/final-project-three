@@ -1,4 +1,5 @@
-import Menu from './components/Menu';
+
+// import Menu from './components/Menu';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -7,9 +8,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import Menu from './components/Menu';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -35,7 +34,7 @@ function App() {
     
     return (
         <Router>
-            <Menu />
+            <Menu></Menu>
             <Switch>
                 <Route exact path='/'>
                     <Home />
