@@ -20,6 +20,10 @@ const promise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrdd
 
 import Menu from './components/Menu';
 
+import CreateRaffle from './pages/CreateRaffle';
+
+
+
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -59,6 +63,10 @@ function App() {
                 <PrivateRoute exact path='/notes'>
                     <Notes />
                 </PrivateRoute>
+
+                <PrivateRoute exact path ='/createraffle'>
+                    <CreateRaffle />
+
                 {/* sol added this checkout route ????? */}
                 {/* not sure if this goes here but the stripe docs were calling for this ???? */}
                 <PrivateRoute exact path='/checkout'>
@@ -67,6 +75,7 @@ function App() {
                             <Checkout />
                         </Elements>
                     </div>
+
                 </PrivateRoute>
             </Switch>
 
