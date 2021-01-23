@@ -5,6 +5,7 @@ const noteRoutes = require('./notesController');
 const userRoutes = require('./usersController');
 const authRoutes = require('./authController');
 const raffleRoutes = require('./rafflesController.js');
+
 // Hook up to the router
 router.use('/api/notes', noteRoutes);
 router.use('/api/users', userRoutes);

@@ -30,12 +30,11 @@
         "mongoose": "^5.11.12",
         "morgan": "^1.10.0",
         "mysql2": "^1.6.5",
-
         "sequelize": "^6.3.5",
-        "stripe": "^8.131.0"
+        "stripe": "^8.131.0",
 
-        "react-bootstrap": "^1.4.3",
-        "sequelize": "^6.3.5"
+        "react-bootstrap": "^1.4.3"
+
 
     },
     "devDependencies": {
