@@ -1,3 +1,4 @@
+
 {
     "name": "project-3-sequelize-starter-code",
     "version": "1.0.0",
@@ -25,6 +26,7 @@
         "express": "^4.17.0",
         "express-jwt": "^6.0.0",
         "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.11.12",
         "morgan": "^1.10.0",
         "mysql2": "^1.6.5",
         "react-bootstrap": "^1.4.3",

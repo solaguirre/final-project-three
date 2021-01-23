@@ -54,3 +54,4 @@ router.delete('/:id', isAuthenticated, function(req, res) {
 
 // Defining methods for the booksController
 module.exports = router;
+

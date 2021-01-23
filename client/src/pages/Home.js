@@ -1,3 +1,4 @@
+
 // import Navbar from 'react-bootstrap/Navbar';
 import Menu from '../components/Menu'
 import Carousel from 'react-bootstrap/Carousel'
@@ -50,10 +51,4 @@ function Home() {
                     </Carousel.Item>
                 </Carousel>
             </p>
-
-        </div>
-    );
-}
-
-export default Home;
 
