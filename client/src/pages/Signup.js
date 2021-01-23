@@ -81,6 +81,7 @@ const Signup = () => {
                             </Form.Text>
                         </Form.Group>
 
+
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
@@ -98,6 +99,7 @@ const Signup = () => {
                     </p>
                 </div>
             </div>
+
         </div>
     );
 };

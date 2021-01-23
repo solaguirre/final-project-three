@@ -47,7 +47,8 @@ module.exports = function (sequelize, DataTypes) {
         // db.User.scope('withPassword').findAll() etc
         scopes: {
             withPassword: {
-                attributes: { }
+                // eslint-disable-next-line no-empty
+                attributes: {}
             }
         }
     }
