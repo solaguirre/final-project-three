@@ -1,30 +1,25 @@
 const express = require('express');
 const app = express();
-const Stripe = require('stripe');
-const stripe = Stripe('sk_test_51I9ilkLEoVxAcGevEaTlvbhBbUnlWxqWqVBfkzSBhx9AP5q4rhtUtwF1rkqZHbH19XYbBujvyWMDFau466l6XivY00wUf0WFzF');
+const stripe = require('stripe')('sk_test_51I9ilkLEoVxAcGevEaTlvbhBbUnlWxqWqVBfkzSBhx9AP5q4rhtUtwF1rkqZHbH19XYbBujvyWMDFau466l6XivY00wUf0WFzF');
 
-app.post('create-checkout-session', async (req, res) => {
-    const session = await stripe.checkout.sessions.create({
-        paymentMethodTypes: ['card'],
-        lineItems: [
-            {
-                priceData: {
-                    currency: 'usd',
-                    productData: {
-                        name: 'Weffle Tickets',
-                        images: ['https://imgur.com/gallery/EgSjR'],
+app.use(express.static('.'));
+app.use(express.json());
 
-                    },
-                    unitAmount: 2000,
-                },
-                quantity: 1,
-            },
-        ],
-        mode: 'payment',
-        successUrl: `${OUR_DOMAIN}?sucess=true`,
-        cancelUrl: `${OUR_DOMAIN}?canceled=true`,
+
+const calculateOrderAmount = items => {
+
+    return 1400;
+};
+
+app.post('/create-payment-intent', async (req, res) => {
+    const { items } = req.body;
+    // create paymentintent
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: calculateOrderAmount(items),
+        currency: 'usd'
     });
 
-    res.json({ id: session.id });
+    res.send({
+        clientSecret: paymentIntent.client_secret
+    });
 });
-

@@ -7,12 +7,11 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
-// import Sucess from './pages/Success'
 
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import Checkout from './pages/Checkout';
+import CheckoutForm from './pages/CheckoutForm';
 
 const promise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
 
@@ -54,23 +53,16 @@ function App() {
                 <PrivateRoute exact path='/notes'>
                     <Notes />
                 </PrivateRoute>
-                {/* sol added this checkout route ????? */}
-                {/* not sure if this goes here but the stripe docs were calling for this ???? */}
-                <PrivateRoute exact path='/checkout'>
-                    <div className="App">
-                        <Elements stripe={promise}>
-                            <Checkout />
-                        </Elements>
-                    </div>
+                <PrivateRoute exact path='/checkoutForm'>
+                    <Elements stripe={promise}>
+                        <CheckoutForm />
+                    </Elements>
                 </PrivateRoute>
+
             </Switch>
-
-
         </Router>
 
-
     );
-
 }
 
 // Yanked straight from the react-router docs for redirects
