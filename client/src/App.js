@@ -9,11 +9,7 @@ import Login from './pages/Login';
 import Notes from './pages/Notes';
 
 import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from './pages/CheckoutForm';
-
-const promise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
+import Checkout from './pages/Checkout';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -53,10 +49,8 @@ function App() {
                 <PrivateRoute exact path='/notes'>
                     <Notes />
                 </PrivateRoute>
-                <PrivateRoute exact path='/checkoutForm'>
-                    <Elements stripe={promise}>
-                        <CheckoutForm />
-                    </Elements>
+                <PrivateRoute exact path='/checkout'>
+                    <Checkout />
                 </PrivateRoute>
 
             </Switch>

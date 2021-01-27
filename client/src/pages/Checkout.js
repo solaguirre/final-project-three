@@ -1,32 +1,45 @@
 import React, { useState, useEffect } from 'react';
+import {
+    CardElement,
+    useStripe,
+    useElements, PaymentRequestButtonElement
+} from '@stripe/react-stripe-js';
 
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-
-function CheckoutForm() {
+function Checkout() {
+    const stripe = useStripe();
+    const [paymentRequest, setPaymentRequest] = useState(null);
     const [succeeded, setSucceeded] = useState(false);
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState('');
     const [disabled, setDisabled] = useState(true);
-    const [clientSecret, setClientSecret] = useState('');
-    const stripe = useStripe();
+    const [clientSecret] = useState('');
     const elements = useElements();
 
     useEffect(() => {
-        window
-            .fetch('/create-payment-intent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
+        if (stripe) {
+            const pr = stripe.paymentRequest({
+                country: 'US',
+                currency: 'usd',
+                total: {
+                    label: 'Demo total',
+                    amount: 1099,
                 },
-                body: JSON.stringify({ items: [{ id: 'weffle ticket' }] })
-            })
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                setClientSecret(data.clientSecret);
+                requestPayerName: true,
+                requestPayerEmail: true,
             });
-    }, []);
+
+            pr.canMakePayment().then(result => {
+                if (result) {
+                    setPaymentRequest(pr);
+                }
+            });
+        }
+
+    }, [stripe]);
+
+    if (paymentRequest) {
+        return <PaymentRequestButtonElement options={{ paymentRequest }} />;
+    }
 
     const cardStyle = {
         style: {
@@ -35,12 +48,12 @@ function CheckoutForm() {
                 fontFamily: 'Arial, sans-serif',
                 fontSmoothing: 'antialiased',
                 fontSize: '16px',
-                ':: placeholder': {
+                '::placeholder': {
                     color: '#32325d'
                 }
             },
             invalid: {
-                color: '#fa755a',
+                color: '#fa755',
                 iconColor: '#fa755a'
             }
         }
@@ -51,12 +64,12 @@ function CheckoutForm() {
         setError(event.error ? event.error.message : '');
     };
 
-    const handleSubmit = async event => {
-        event.preventDefault();
+    const handleSubmit = async ev => {
+        ev.preventDefault();
         setProcessing(true);
 
         const payload = await stripe.confirmCardPayment(clientSecret, {
-            paymentMethod: {
+            paymentmethod: {
                 card: elements.getElement(CardElement)
             }
         });
@@ -76,8 +89,7 @@ function CheckoutForm() {
             <CardElement id='card-element' options={cardStyle} onChange={handleChange} />
             <button
                 disabled={processing || disabled || succeeded}
-                id='submit'
-            >
+                id='submit'>
                 <span id='button-text'>
                     {processing ? (
                         <div className='spinner' id='spinner'></div>
@@ -86,24 +98,21 @@ function CheckoutForm() {
                     )}
                 </span>
             </button>
-            {/* Show any error that happens when processing the payment */}
+
             {error && (
-                <div className="card-error" role="alert">
+                <div className='card-error' role='alert'>
                     {error}
                 </div>
             )}
-            {/* Show a success message upon completion */}
             <p className={succeeded ? 'result-message' : 'result-message hidden'}>
-            Payment succeeded, see the result in your
+                Payment succeeded, see the result in your
                 <a
-                    href={'https://dashboard.stripe.com/test/payments'}
-                >
+                    href={'https://dashboard.stripe.com/test/payments'}>
                     {''}
-          Stripe dashboard.
-                </a> Refresh the page to pay again.
+                    Stripe dashboard.
+                </a>
             </p>
         </form>
     );
 }
-
-export default CheckoutForm;
+export default Checkout;
