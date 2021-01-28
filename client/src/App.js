@@ -9,6 +9,12 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
 
+
+import React from 'react';
+import Checkout from './pages/Checkout';
+
+
+
 // import Sucess from './pages/Success'
 
 import React from 'react';
@@ -21,6 +27,7 @@ import React from 'react';
 import Menu from './components/Menu';
 
 import CreateRaffle from './pages/CreateRaffle';
+
 
 
 function App() {
@@ -62,17 +69,19 @@ function App() {
                     <Notes />
                 </PrivateRoute>
 
+                <PrivateRoute exact path='/checkout'>
+                    <Checkout />
+
+
                 <PrivateRoute exact path ='/createraffle'>
                     <CreateRaffle />
+
                 </PrivateRoute>
+
             </Switch>
-
-
         </Router>
 
-
     );
-
 }
 
 // Yanked straight from the react-router docs for redirects
