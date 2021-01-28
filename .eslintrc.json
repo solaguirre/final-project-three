@@ -19,7 +19,7 @@
     "no-empty-function": "error",
     "no-multi-spaces": "error",
     "no-mixed-spaces-and-tabs": "error",
-    "no-multiple-empty-lines": "error",
+    "no-multiple-empty-lines":"error",
     "no-trailing-spaces": "error",
     "default-case": "error",
     "no-fallthrough": "error",
@@ -40,10 +40,6 @@
     "semi": [
       "error",
       "always"
-    ],
-    "extends": [
-      // ...
-      "plugin:react-hooks/recommended"
     ]
   }
 }

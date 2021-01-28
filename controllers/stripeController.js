@@ -1,34 +1,31 @@
 const express = require('express');
-const app = express();
+const router = require('express').Router();
 
 const stripe = require('stripe')('sk_test_51I9ilkLEoVxAcGevEaTlvbhBbUnlWxqWqVBfkzSBhx9AP5q4rhtUtwF1rkqZHbH19XYbBujvyWMDFau466l6XivY00wUf0WFzF');
 
-const weffleTickets = items => {
+const YOUR_DOMAIN = 'http://localhost:3000/checkout';
 
-    return 5;
-};
-
-app.post('/create-payment-intent', async (req, res) => {
-    const {items} = req.body;
+router.post('/', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Stubborn Attachments',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}?success=true`,
+    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+  });
+  res.json({ id: session.id });
 })
-const paymentIntent = await stripe.paymentIntents.create({
-    amount: weffleTickets(items),
-    currency: 'usd',
 
-    metadata: {integration_check: 'accept_a_payment'},
-});
-
-res.send({
-    clientSecret: paymentIntent.clientSecret
-});
-
-const paymentMethod = await stripe.paymentMethods.create({
-  type: 'card',
-  card: {
-    number: '4242424242424242',
-    exp_month: 1,
-    exp_year: 2022,
-    cvc: '314',
-  },
-});
-
+module.exports = router;

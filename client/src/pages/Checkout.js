@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {
-    CardElement,
-    useStripe,
-    useElements, PaymentRequestButtonElement
-} from '@stripe/react-stripe-js';
+import { CardElement, useStripe, useElements, PaymentRequestButtonElement } from '@stripe/react-stripe-js';
 
 function Checkout() {
-    const stripe = useStripe();
+    // const stripe = useStripe();
     const [paymentRequest, setPaymentRequest] = useState(null);
     const [succeeded, setSucceeded] = useState(false);
     const [error, setError] = useState(null);
@@ -18,11 +14,11 @@ function Checkout() {
     useEffect(() => {
         if (stripe) {
             const pr = stripe.paymentRequest({
-                country: 'US',
                 currency: 'usd',
                 total: {
                     label: 'Demo total',
-                    amount: 1099,
+                    amount: 1099, 
+
                 },
                 requestPayerName: true,
                 requestPayerEmail: true,

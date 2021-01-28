@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const stripeRoutes = require('./stripeController');
 
 // Import our controllers
 const noteRoutes = require('./notesController');
@@ -9,6 +10,7 @@ const authRoutes = require('./authController');
 router.use('/api/notes', noteRoutes);
 router.use('/api/users', userRoutes);
 router.use('/api/auth', authRoutes);
+router.use('/create-checkout-session', stripeRoutes);
 
 // Export the router
 module.exports = router;
