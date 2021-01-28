@@ -4,7 +4,6 @@ CREATE DATABASE project_3_local;
 
 // Credit card display if needed to install 'npm install --save react-credit-cards', just not sure where we would want this to end up
 
-
 import React from 'react';
 import Cards from 'react-credit-cards';
 
