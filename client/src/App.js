@@ -8,27 +8,10 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
-
-
 import React from 'react';
 import Checkout from './pages/Checkout';
-
-
-
-// import Sucess from './pages/Success'
-
-import React from 'react';
-// import { loadStripe } from '@stripe/stripe-js';
-// import { Elements } from '@stripe/react-stripe-js';
-// import Checkout from './pages/Checkout';
-
-// const promise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
-
 import Menu from './components/Menu';
-
 import CreateRaffle from './pages/CreateRaffle';
-
-
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -72,12 +55,11 @@ function App() {
                 <PrivateRoute exact path='/checkout'>
                     <Checkout />
 
-
-                <PrivateRoute exact path ='/createraffle'>
+                </PrivateRoute>
+                <PrivateRoute exact path='/createraffle'>
                     <CreateRaffle />
 
                 </PrivateRoute>
-
             </Switch>
         </Router>
 
