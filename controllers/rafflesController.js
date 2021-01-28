@@ -28,14 +28,13 @@ router.get('/:id', isAuthenticated, function (req, res) {
  */
 router.post('/', function (req, res) {
     const raffle = req.body;
-    if (raffle.max < raffle.min) {
-        raffle.max = raffle.min;
+    if (raffle.maximumEntries < raffle.minimumEntries) {
+        raffle.maximumEntries = raffle.minimumEntries;
     }
     db.Raffle
         .create(raffle)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-
 });
 
 /**
@@ -55,5 +54,15 @@ router.delete('/:id', isAuthenticated, function (req, res) {
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
+
+router.get('/:id', isAuthenticated, function (req, res) {
+    db.Raffle.findAll({ where: { id: req.params.id } })
+        .then(results => {
+            const winner = Math.floor(Math.random() * results.length);
+            results[winner].id;
+            console.log(results[winner].id);
+
+        })
+})
 
 module.exports = router;

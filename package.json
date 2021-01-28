@@ -32,10 +32,7 @@
         "mysql2": "^1.6.5",
         "sequelize": "^6.3.5",
         "stripe": "^8.131.0",
-
         "react-bootstrap": "^1.4.3"
-
-
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.11.0",

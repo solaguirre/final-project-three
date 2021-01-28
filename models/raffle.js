@@ -1,5 +1,3 @@
-
-
 module.exports = function (sequelize, DataTypes) {
     const Raffles = sequelize.define('Raffle', {
         itemName: {
@@ -42,7 +40,5 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: 'raffle_id'
         });
     };
-
-
     return Raffles;
 };

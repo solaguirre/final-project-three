@@ -1,44 +1,36 @@
 import { useState } from 'react';
-// import { Redirect } from 'react-router-dom';
-// import useAuth from '../hooks/auth';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import './home.css';
+import axios from 'axios';
 
 const CreateRaffles = () => {
-    // const { CreateRaffle, isLoggedIn } = useAuth();
     // History and location are hooks we can use to manipulate our page's history!
-    // const history = useHistory();
-    // const location = useLocation();
     const [itemName, setItemName] = useState('');
-    const [itemCode, setItemCode] = useState('');
+    const [code, setItemCode] = useState('');
     const [maximumEntries, setMaximumEntries] = useState('');
-    console.log(itemCode, itemName, maximumEntries);
-    // For our redirector
-    // const [redirectToLogin, toggleRedirect] = useState(false);
-    // // This is the key part to our redirector. We can pull the prior location out here, if it exists
-    // const { from } = location.state || { from: { pathname: '/' } };
+    const [minimumEntries, setMinimumEntries] = useState('');
+    const currentEntries = 0;
+    const winnerOfRaffle = '';
+    console.log(itemName, code, minimumEntries, maximumEntries, currentEntries, winnerOfRaffle);
 
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-    //     signup(email, password).then(res => {
-    //         // Go back to whence you came!
-    //         history.replace(from);
-    //     });
-    // };
 
-    // if (isLoggedIn()) {
-    //     return <Redirect to={location.state || '/'} />;
-    // }
-
-    // if (redirectToLogin) {
-    //     // If someone goes to login, this transfers the redirect
-    //     return <Redirect to={{
-    //         pathname: '/login',
-    //         state: { from: from }
-    //     }}
-    //     />;
-    // }
+    const handleSubmit = event => {
+        event.preventDefault();
+        axios({
+            method: 'post',
+            url: '/api/raffles/',
+            data: {
+                itemName: itemName,
+                code: code,
+                minimumEntries: minimumEntries,
+                maximumEntries: maximumEntries,
+                winnerOfRaffle: winnerOfRaffle
+            }
+        }).then(res => {
+            console.log(res);
+        });
+    };
 
     return (
         <div>
@@ -66,18 +58,24 @@ const CreateRaffles = () => {
 
                 <Form.Group>
                     <Form.Label>Maximum Entries</Form.Label>
-                    <Form.Control type="maximumEntries" onChange={event => setMaximumEntries(event.target.value)} placeholder = "Maximum Entries" />
+                    <Form.Control type="maximumEntries" onChange={event => setMaximumEntries(event.target.value)} placeholder="Maximum Entries" />
                     <Form.Text id="maximumEntries" muted>
                         This will limit your maximum number of entries (currently 50)
                     </Form.Text>
                 </Form.Group>
 
-                <Button variant="outline-dark">Submit</Button>
+                <Form.Group>
+                    <Form.Label>Minimum Entries</Form.Label>
+                    <Form.Control type="minimumEntries" onChange={event => setMinimumEntries(event.target.value)} placeholder="Maximum Entries" />
+                    <Form.Text id="minimumEntries" muted>
+                        This will limit your minimum number of entries (currently 5)
+                    </Form.Text>
+                </Form.Group>
+                <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
             </Form>
             <p>
             </p>
         </div>
     );
 };
-
 export default CreateRaffles;
