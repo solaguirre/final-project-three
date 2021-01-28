@@ -1,114 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { CardElement, useStripe, useElements, PaymentRequestButtonElement } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+// import './App.css';
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
+const Checkout = ({ handleClick }) => (
+    <section>
+        <div className="product">
+            <img
+                src="https://i.imgur.com/EHyR2nP.png"
+                alt="The cover of Stubborn Attachments"
+            />
+            <div className="description">
+                <h3>Weffle Ticket</h3>
+                <h5>$20.00</h5>
+            </div>
+        </div>
+        <button type="button" id="checkout-button" role="link" onClick={handleClick}>
+            Checkout
+        </button>
+    </section>
+);
+const Message = ({ message }) => (
+    <section>
+        <p>{message}</p>
+    </section>
+);
 
-function Checkout() {
-    // const stripe = useStripe();
-    const [paymentRequest, setPaymentRequest] = useState(null);
-    const [succeeded, setSucceeded] = useState(false);
-    const [error, setError] = useState(null);
-    const [processing, setProcessing] = useState('');
-    const [disabled, setDisabled] = useState(true);
-    const [clientSecret] = useState('');
-    const elements = useElements();
-
+export default function App() {
+    const [message, setMessage] = useState('');
     useEffect(() => {
-        if (stripe) {
-            const pr = stripe.paymentRequest({
-                currency: 'usd',
-                total: {
-                    label: 'Demo total',
-                    amount: 1099, 
-
-                },
-                requestPayerName: true,
-                requestPayerEmail: true,
-            });
-
-            pr.canMakePayment().then(result => {
-                if (result) {
-                    setPaymentRequest(pr);
-                }
-            });
+        // Check to see if this is a redirect back from Checkout
+        const query = new URLSearchParams(window.location.search);
+        if (query.get('success')) {
+            setMessage('Order placed! You will receive an email confirmation.');
         }
-
-    }, [stripe]);
-
-    if (paymentRequest) {
-        return <PaymentRequestButtonElement options={{ paymentRequest }} />;
-    }
-
-    const cardStyle = {
-        style: {
-            base: {
-                color: '#32325d',
-                fontFamily: 'Arial, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#32325d'
-                }
-            },
-            invalid: {
-                color: '#fa755',
-                iconColor: '#fa755a'
-            }
+        if (query.get('canceled')) {
+            setMessage(
+                'Order canceled -- continue to shop around and checkout when you are ready.'
+            );
         }
-    };
-
-    const handleChange = async (event) => {
-        setDisabled(event.empty);
-        setError(event.error ? event.error.message : '');
-    };
-
-    const handleSubmit = async ev => {
-        ev.preventDefault();
-        setProcessing(true);
-
-        const payload = await stripe.confirmCardPayment(clientSecret, {
-            paymentmethod: {
-                card: elements.getElement(CardElement)
-            }
+    }, []);
+    const handleClick = async (event) => {
+        const stripe = await stripePromise;
+        const response = await fetch('/create-checkout-session', {
+            method: 'POST',
         });
-
-        if (payload.error) {
-            setError(`Payment failed ${payload.error.message}`);
-            setProcessing(false);
-        } else {
-            setError(null);
-            setProcessing(false);
-            setSucceeded(true);
+        const session = await response.json();
+        // When the customer clicks on the button, redirect them to Checkout.
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.id,
+        });
+        if (result.error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
         }
     };
-
-    return (
-        <form id='payment-form' onSubmit={handleSubmit}>
-            <CardElement id='card-element' options={cardStyle} onChange={handleChange} />
-            <button
-                disabled={processing || disabled || succeeded}
-                id='submit'>
-                <span id='button-text'>
-                    {processing ? (
-                        <div className='spinner' id='spinner'></div>
-                    ) : (
-                        'Pay'
-                    )}
-                </span>
-            </button>
-
-            {error && (
-                <div className='card-error' role='alert'>
-                    {error}
-                </div>
-            )}
-            <p className={succeeded ? 'result-message' : 'result-message hidden'}>
-                Payment succeeded, see the result in your
-                <a
-                    href={'https://dashboard.stripe.com/test/payments'}>
-                    {''}
-                    Stripe dashboard.
-                </a>
-            </p>
-        </form>
+    return message ? (
+        <Message message={message} />
+    ) : (
+        <Checkout handleClick={handleClick} />
     );
 }
-export default Checkout;
