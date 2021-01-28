@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/auth';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import './home.css';
 
 const Signup = () => {
     const { signup, isLoggedIn } = useAuth();
@@ -37,10 +40,12 @@ const Signup = () => {
 
     return (
         <div>
-            <h2>
-                Signup Page
-            </h2>
-            <form onSubmit={handleSubmit}>
+            <div className="container">
+                <div className="ticket">
+                    <h2>
+                        Signup Page
+                    </h2>
+                    {/* <form onSubmit={handleSubmit}>
                 <label htmlFor='email'>Email:</label>
                 <input
                     name='email'
@@ -65,7 +70,35 @@ const Signup = () => {
             </form>
             <p>
                 Already have an account? <button onClick={() => toggleRedirect(true)}>Login Here</button>
-            </p>
+            </p> */}
+
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else.
+                            </Form.Text>
+                        </Form.Group>
+
+
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
+                            <Form.Text id="passwordHelpBlock" muted>
+                                Must be 8-20 characters long.
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Receive Updates" />
+                        </Form.Group>
+                        <Button variant="outline-dark">Submit</Button>
+                    </Form>
+                    <p>
+                        Already have an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Login Here</Button>
+                    </p>
+                </div>
+            </div>
 
         </div>
     );
