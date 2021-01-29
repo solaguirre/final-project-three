@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 // import Notes from './pages/Notes';
-import React from 'react';
 import Checkout from './pages/Checkout';
 import Menu from './components/Menu';
 import CreateRaffle from './pages/CreateRaffle';
