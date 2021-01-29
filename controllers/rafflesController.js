@@ -62,7 +62,7 @@ router.get('/:id', isAuthenticated, function (req, res) {
             results[winner].id;
             console.log(results[winner].id);
 
-        })
-})
+        });
+});
 
 module.exports = router;
