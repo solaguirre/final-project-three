@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 // import './App.css';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
+
 const CheckoutSession = ({ handleClick }) => (
     <section>
         <div className="product">
@@ -29,6 +29,7 @@ const Message = ({ message }) => (
 );
 
 function Checkout() {
+    const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
     const [message, setMessage] = useState('');
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
