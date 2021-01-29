@@ -51,11 +51,10 @@ function App() {
                 {/* <PrivateRoute exact path='/notes'>
                     <Notes />
                 </PrivateRoute> */}
-
-                <PrivateRoute exact path='/checkout'>
+                <Route exact path='/checkout'>
                     <Checkout />
+                </Route>
 
-                </PrivateRoute>
                 <PrivateRoute exact path='/createraffle'>
                     <CreateRaffle />
 
