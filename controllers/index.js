@@ -6,7 +6,7 @@ const stripeRoutes = require('./stripeController');
 const userRoutes = require('./usersController');
 const authRoutes = require('./authController');
 const raffleRoutes = require('./rafflesController.js');
-
+const viewRafflesRoutes = require('./viewRafflesController.js');
 // Hook up to the router
 // router.use('/api/notes', noteRoutes);
 router.use('/api/users', userRoutes);
@@ -15,7 +15,7 @@ router.use('/api/auth', authRoutes);
 router.use('/create-checkout-session', stripeRoutes);
 
 router.use('/api/raffles', raffleRoutes);
-
+router.use('/api/raffles', viewRafflesRoutes);
 
 // Export the router
 module.exports = router;
