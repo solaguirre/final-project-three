@@ -10,7 +10,7 @@ const path = require('path');
 // Requiring our routes
 const routes = require('./controllers');
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 const db = require('./models');
 // Bringing in Morgan, a nice logger for our server
 const morgan = require('morgan');

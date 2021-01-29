@@ -26,23 +26,16 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue:3
         },
-    });
-    User.associate = (models) => {
-        User.belongsToMany(models.Raffles, {
-            through: 'user_raffles',
-            as: 'users',
-            foreignKey: 'user_id'
-        });
-    };
-
+    },
+    
     {
         // This forces any default 'User' to exclude the password when we query them;
         // this way we don't expose even a hashed password
         defaultScope: {
             attributes: {
-                exclude: ['password'];
+                exclude: ['password']
             }
-        }
+        },
         // If you want to show the password, for whatever reason, we expose with:
         // db.User.scope('withPassword').findAll() etc
         scopes: {
@@ -51,7 +44,7 @@ module.exports = function (sequelize, DataTypes) {
                 attributes: {}
             }
         }
-    }
+    });
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
@@ -66,11 +59,11 @@ module.exports = function (sequelize, DataTypes) {
         );
     });
 
-    User.associate = function (models) {
-        // Associating User with Notes
-        // When an User is deleted, also delete any associated Notes
-        User.hasMany(models.Note, {
-            onDelete: 'cascade'
+    User.associate = (models) => {
+        User.belongsToMany(models.Raffle, {
+            through: 'user_raffles',
+            as: 'users',
+            foreignKey: 'user_id'
         });
     };
 
