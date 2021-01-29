@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const Raffles = sequelize.define('Raffle', {
+    const Raffle = sequelize.define('Raffle', {
         itemName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -33,12 +33,12 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true,
         },
     });
-    Raffles.associate = (models) => {
-        Raffles.belongsToMany(models.User, {
+    Raffle.associate = (models) => {
+        Raffle.belongsToMany(models.User, {
             through: 'user_raffles',
             as: 'raffles',
             foreignKey: 'raffle_id'
         });
     };
-    return Raffles;
+    return Raffle;
 };

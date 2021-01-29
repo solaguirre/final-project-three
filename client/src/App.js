@@ -7,7 +7,7 @@ import useAuth from './hooks/auth';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Notes from './pages/Notes';
+// import Notes from './pages/Notes';
 import React from 'react';
 import Checkout from './pages/Checkout';
 import Menu from './components/Menu';
@@ -48,9 +48,9 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-                <PrivateRoute exact path='/notes'>
+                {/* <PrivateRoute exact path='/notes'>
                     <Notes />
-                </PrivateRoute>
+                </PrivateRoute> */}
 
                 <PrivateRoute exact path='/checkout'>
                     <Checkout />

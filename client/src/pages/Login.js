@@ -83,7 +83,7 @@ const Login = () => {
 
                         </Form.Group>
 
-                        <Button variant="outline-dark">Submit</Button>
+                        <Button onClick={handleSubmit} variant="outline-dark">Submit</Button>
                     </Form>
                     <p>
                         Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
