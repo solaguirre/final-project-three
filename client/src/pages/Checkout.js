@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 // import './App.css';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
-const Checkout = ({ handleClick }) => (
+
+const CheckoutSession = ({ handleClick }) => (
     <section>
         <div className="product">
             <img
@@ -13,7 +13,7 @@ const Checkout = ({ handleClick }) => (
             />
             <div className="description">
                 <h3>Weffle Ticket</h3>
-                <h5>$20.00</h5>
+                <h5>$5.00</h5>
             </div>
         </div>
         <button type="button" id="checkout-button" role="link" onClick={handleClick}>
@@ -21,13 +21,15 @@ const Checkout = ({ handleClick }) => (
         </button>
     </section>
 );
+
 const Message = ({ message }) => (
     <section>
         <p>{message}</p>
     </section>
 );
 
-export default function App() {
+function Checkout() {
+    const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
     const [message, setMessage] = useState('');
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
@@ -60,6 +62,7 @@ export default function App() {
     return message ? (
         <Message message={message} />
     ) : (
-        <Checkout handleClick={handleClick} />
+        <CheckoutSession handleClick={handleClick} />
     );
 }
+export default Checkout;
