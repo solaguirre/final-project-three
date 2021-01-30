@@ -6,17 +6,15 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const CheckoutSession = ({ handleClick }) => (
     <section>
-        <div className="product">
-            <img
-                src="https://i.imgur.com/EHyR2nP.png"
-                alt="The cover of Stubborn Attachments"
-            />
-            <div className="description">
+        <div className='product'>
+            <img src='.../public/'
+                alt='A weffle ticket in all its glory.' />
+            <div className='description'>
                 <h3>Weffle Ticket</h3>
                 <h5>$5.00</h5>
             </div>
         </div>
-        <button type="button" id="checkout-button" role="link" onClick={handleClick}>
+        <button type='button' id='checkout-button' role='link' onClick={handleClick}>
             Checkout
         </button>
     </section>
@@ -62,7 +60,7 @@ function Checkout() {
     return message ? (
         <Message message={message} />
     ) : (
-        <CheckoutSession handleClick={handleClick} />
-    );
+            <CheckoutSession handleClick={handleClick} />
+        );
 }
 export default Checkout;
