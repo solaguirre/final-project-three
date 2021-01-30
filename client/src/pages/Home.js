@@ -1,7 +1,7 @@
 
 // import Navbar from 'react-bootstrap/Navbar';
 // import Menu from '../components/Menu';
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -31,7 +31,7 @@ function Home() {
                 Weffle
             </h2> */}
             <p>
-                <Carousel>
+                {/* <Carousel>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
@@ -55,7 +55,7 @@ function Home() {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                </Carousel>
+                </Carousel> */}
             </p>
         </div >
     );
