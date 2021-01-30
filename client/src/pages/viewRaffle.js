@@ -5,21 +5,22 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './home.css';
 
-const Login = () => {
-    const { login, isLoggedIn } = useAuth();
+const ViewRaffle = () => {
+    const { signup, isLoggedIn } = useAuth();
     // History and location are hooks we can use to manipulate our page's history!
     const history = useHistory();
     const location = useLocation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     // For our redirector
-    const [redirectToSignup, toggleRedirect] = useState(false);
+    const [redirectToLogin, toggleRedirect] = useState(false);
     // This is the key part to our redirector. We can pull the prior location out here, if it exists
     const { from } = location.state || { from: { pathname: '/' } };
 
     const handleSubmit = event => {
         event.preventDefault();
-        login(email, password).then(res => {
+        signup(email, password).then(res => {
+            // Go back to whence you came!
             history.replace(from);
         });
     };
@@ -28,10 +29,10 @@ const Login = () => {
         return <Redirect to={location.state || '/'} />;
     }
 
-    if (redirectToSignup) {
+    if (redirectToLogin) {
+        // If someone goes to login, this transfers the redirect
         return <Redirect to={{
-            // If someone goes to signup, this transfers the redirect
-            pathname: '/signup',
+            pathname: '/login',
             state: { from: from }
         }}
         />;
@@ -39,60 +40,43 @@ const Login = () => {
 
     return (
         <div>
-
             <div className="container">
                 <div className="ticket">
                     <h2>
-                        Login Page
+                        View Raffle Page
                     </h2>
-                    {/* <form onSubmit={handleSubmit}>
-                <label htmlFor='email'>Email:</label>
-                <input
-                    name='email'
-                    placeholder='Email'
-                    type='email'
-                    autoComplete='username'
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                />
-                <br />
-                <label htmlFor='password'>Password:</label>
-                <input
-                    name='password'
-                    placeholder='Password'
-                    type='password'
-                    autoComplete='password'
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
-                />
-                <br />
-                <button type='submit'>Login</button>
-            </form>
-            <p>
-                Need an account? <button onClick={() => toggleRedirect(true)}>Signup Here</button>
-            </p> */}
-                    <Form>
+
+
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else.
+                            </Form.Text>
                         </Form.Group>
+
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
-
+                            <Form.Text id="passwordHelpBlock" muted>
+                                Must be 8-20 characters long.
+                            </Form.Text>
                         </Form.Group>
-
-                        <Button onClick={handleSubmit} variant="outline-dark">Submit</Button>
+                        <Form.Group controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Receive Updates" />
+                        </Form.Group>
+                        <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
                     <p>
-                        Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
+                        Already have an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Login Here</Button>
                     </p>
                 </div>
-            </div >
-        </div >
+            </div>
 
+        </div>
     );
 };
 
-export default Login;
+export default ViewRaffle;

@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './home.css';
 import axios from 'axios';
+// import axios from 'axios';
 
 const CreateRaffles = () => {
     // History and location are hooks we can use to manipulate our page's history!
@@ -12,25 +14,29 @@ const CreateRaffles = () => {
     const [minimumEntries, setMinimumEntries] = useState('');
     const currentEntries = 0;
     const winnerOfRaffle = '';
+    const [redirectToLogin, toggleRedirect] = useState(false);
     console.log(itemName, code, minimumEntries, maximumEntries, currentEntries, winnerOfRaffle);
 
 
     const handleSubmit = event => {
         event.preventDefault();
-        axios({
-            method: 'post',
-            url: '/api/raffles/',
-            data: {
-                itemName: itemName,
-                code: code,
-                minimumEntries: minimumEntries,
-                maximumEntries: maximumEntries,
-                winnerOfRaffle: winnerOfRaffle
-            }
-        }).then(res => {
-            console.log(res);
-        });
+        postRaffle({ itemName, code, minimumEntries, maximumEntries });
     };
+
+    function postRaffle(data) {
+        axios.post('/api/raffles', data).then(() => {
+            toggleRedirect(true);
+        });
+    }
+
+    if (redirectToLogin) {
+        // If someone goes to login, this transfers the redirect
+        return <Redirect to={{
+            pathname: '/viewRaffle',
+        }}
+        />;
+    }
+
 
     return (
         <div>
@@ -73,8 +79,7 @@ const CreateRaffles = () => {
                 </Form.Group>
                 <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
             </Form>
-            <p>
-            </p>
+
         </div>
     );
 };
