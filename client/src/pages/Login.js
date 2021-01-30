@@ -71,7 +71,7 @@ const Login = () => {
             <p>
                 Need an account? <button onClick={() => toggleRedirect(true)}>Signup Here</button>
             </p> */}
-                    <Form onSubmit={handleSubmit}>
+                    <Form>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />

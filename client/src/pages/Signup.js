@@ -72,7 +72,7 @@ const Signup = () => {
                 Already have an account? <button onClick={() => toggleRedirect(true)}>Login Here</button>
             </p> */}
 
-                    <Form onSubmit={handleSubmit}>
+                    <Form>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
