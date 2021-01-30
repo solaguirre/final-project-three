@@ -14,7 +14,7 @@ const CreateRaffles = () => {
     const [minimumEntries, setMinimumEntries] = useState('');
     const currentEntries = 0;
     const winnerOfRaffle = '';
-    const [redirectToLogin, toggleRedirect] = useState(false);
+    const [redirectToViewRaffle, toggleRedirect] = useState(0);
     console.log(itemName, code, minimumEntries, maximumEntries, currentEntries, winnerOfRaffle);
 
 
@@ -24,15 +24,15 @@ const CreateRaffles = () => {
     };
 
     function postRaffle(data) {
-        axios.post('/api/raffles', data).then(() => {
-            toggleRedirect(true);
+        axios.post('/api/raffles', data).then(({data}) => {
+            toggleRedirect(data.id);
         });
     }
 
-    if (redirectToLogin) {
+    if (redirectToViewRaffle) {
         // If someone goes to login, this transfers the redirect
         return <Redirect to={{
-            pathname: '/viewRaffle',
+            pathname: `/viewRaffle/${redirectToViewRaffle}`,
         }}
         />;
     }

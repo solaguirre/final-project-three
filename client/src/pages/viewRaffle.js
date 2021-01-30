@@ -1,82 +1,38 @@
-import { useState } from 'react';
-import { Redirect, useHistory, useLocation } from 'react-router-dom';
-import useAuth from '../hooks/auth';
+import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import './home.css';
+import axios from 'axios';
+import {useParams, Link} from 'react-router-dom';
 
-const ViewRaffle = () => {
-    const { signup, isLoggedIn } = useAuth();
-    // History and location are hooks we can use to manipulate our page's history!
-    const history = useHistory();
-    const location = useLocation();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    // For our redirector
-    const [redirectToLogin, toggleRedirect] = useState(false);
-    // This is the key part to our redirector. We can pull the prior location out here, if it exists
-    const { from } = location.state || { from: { pathname: '/' } };
+const ViewRaffles = () => {
+    const [raffle, setRaffle] = useState({});
+    const {id} = useParams();
+    useEffect(() => {
+        fetchRaffle();
+    },[]);
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        signup(email, password).then(res => {
-            // Go back to whence you came!
-            history.replace(from);
-        });
-    };
-
-    if (isLoggedIn()) {
-        return <Redirect to={location.state || '/'} />;
+    async function fetchRaffle() {
+        const { data } = await axios.get('/api/raffles/'+id);
+        setRaffle(data);
     }
-
-    if (redirectToLogin) {
-        // If someone goes to login, this transfers the redirect
-        return <Redirect to={{
-            pathname: '/login',
-            state: { from: from }
-        }}
-        />;
-    }
+    console.log(raffle);
 
     return (
         <div>
-            <div className="container">
-                <div className="ticket">
-                    <h2>
-                        View Raffle Page
-                    </h2>
+            <Form>
+                <Form.Group controlId="itemName">
+                    <Form.Label>Item Description</Form.Label>
 
+                </Form.Group>
+                <h2>currentEntries / {raffle.maximumEntries}</h2>
 
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
+                <h2>avaialable entries</h2>
 
-
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
-                            <Form.Text id="passwordHelpBlock" muted>
-                                Must be 8-20 characters long.
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Receive Updates" />
-                        </Form.Group>
-                        <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
-                    </Form>
-                    <p>
-                        Already have an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Login Here</Button>
-                    </p>
-                </div>
-            </div>
-
+                <button ><Link to={`/checkout/${id}`}>Submit entries</Link></button>
+            </Form>
         </div>
+
     );
 };
-
-export default ViewRaffle;
+export default ViewRaffles;
