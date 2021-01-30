@@ -7,11 +7,11 @@ import useAuth from './hooks/auth';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-// import Notes from './pages/Notes';
+import Raffles from './pages/Raffles';
 import Checkout from './pages/Checkout';
 import Menu from './components/Menu';
 import CreateRaffle from './pages/CreateRaffle';
-
+import ViewRaffle from './pages/ViewRaffle';
 function App() {
     // Pull auth token from storage, in case you refresh the page
     const { getToken, logout } = useAuth();
@@ -47,16 +47,18 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-                {/* <PrivateRoute exact path='/notes'>
-                    <Notes />
-                </PrivateRoute> */}
-                <Route exact path='/checkout'>
+                <Route path ='/viewraffle/:id'>
+                    <ViewRaffle />
+                </Route>
+                <Route path ='/raffles'>
+                    <Raffles />
+                </Route>
+                <Route exact path='/checkout/:id'>
                     <Checkout />
                 </Route>
-
+                <Route exact path='/checkout' component = {Checkout} />
                 <PrivateRoute exact path='/createraffle'>
                     <CreateRaffle />
-
                 </PrivateRoute>
             </Switch>
         </Router>
