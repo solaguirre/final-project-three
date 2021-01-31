@@ -69,8 +69,6 @@ function Checkout() {
     };
     return message ? (
         <Message message={message} />
-    ) : (
-            <CheckoutSession handleClick={handleClick} />
-        );
+    ) : (<CheckoutSession handleClick={handleClick} />);
 }
 export default Checkout;
