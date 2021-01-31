@@ -12,8 +12,8 @@ body {
 .ticket {
   position: relative;
   box-sizing: border-box;
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 600px;
   margin: 150px auto 0;
   padding: 20px;
   border-radius: 10px;

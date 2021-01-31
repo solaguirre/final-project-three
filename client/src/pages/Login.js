@@ -41,7 +41,7 @@ const Login = () => {
         <div>
 
             <div className="container">
-                <div className="ticket">
+                <div className="ticket" >
                     <h2>
                         Login Page
                     </h2>
