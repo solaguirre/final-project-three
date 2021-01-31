@@ -1,24 +1,34 @@
 import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import './home.css';
+
+
 // import './App.css';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
 const CheckoutSession = ({ handleClick }) => (
-    <section>
-        <div className='product'>
-            <img src='.../public/'
-                alt='A weffle ticket in all its glory.' />
-            <div className='description'>
-                <h3>Weffle Ticket</h3>
-                <h5>$5.00</h5>
-            </div>
-        </div>
-        <button type='button' id='checkout-button' role='link' onClick={handleClick}>
-            Checkout
-        </button>
-    </section>
+    <>
+        <Container>
+            <Row className='ticket'>
+                <Image src='https://i.imgur.com/fsrBsId.gif'
+                    alt='A weffle ticket in all its glory.' fluid />
+                <Col className='description'>
+                    <h1>Weffle Ticket</h1>
+                    <h3>$5.00</h3>
+                </Col>
+            </Row>
+            <Button type='button' variant='secondary' id='checkout-button' role='link' onClick={handleClick}>
+                Checkout
+            </Button>
+        </Container>
+    </>
 );
 
 const Message = ({ message }) => (
@@ -30,8 +40,8 @@ const Message = ({ message }) => (
 function Checkout() {
     const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
     const [message, setMessage] = useState('');
-    const {id} = useParams();
-    
+    const { id } = useParams();
+
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
@@ -48,12 +58,12 @@ function Checkout() {
     const handleClick = async (event) => {
         const stripe = await stripePromise;
         const response = await fetch('/create-checkout-session', {
-            headers : {
-                'Content-Type' : 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             },
-            method : 'POST',
+            method: 'POST',
             body: JSON.stringify({
-                'id' : id
+                'id': id
             })
         });
         const session = await response.json();
@@ -67,8 +77,6 @@ function Checkout() {
             // using `result.error.message`.
         }
     };
-    return message ? (
-        <Message message={message} />
-    ) : (<CheckoutSession handleClick={handleClick} />);
+    return message ? (<Message message={message} />) : (<CheckoutSession handleClick={handleClick} />);
 }
 export default Checkout;

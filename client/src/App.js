@@ -12,6 +12,7 @@ import Checkout from './pages/Checkout';
 import Menu from './components/Menu';
 import CreateRaffle from './pages/CreateRaffle';
 import ViewRaffle from './pages/ViewRaffle';
+import Canceled from './pages/Canceled';
 function App() {
     // Pull auth token from storage, in case you refresh the page
     const { getToken, logout } = useAuth();
@@ -47,16 +48,19 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-                <Route path ='/viewraffle/:id'>
+                <Route path='/viewraffle/:id'>
                     <ViewRaffle />
                 </Route>
-                <Route path ='/raffles'>
+                <Route path='/raffles'>
                     <Raffles />
                 </Route>
                 <Route exact path='/checkout/:id'>
                     <Checkout />
                 </Route>
-                <Route exact path='/checkout' component = {Checkout} />
+                <Route exact path='/canceled'>
+                    <Canceled />
+                </Route>
+                <Route exact path='/checkout' component={Checkout} />
                 <PrivateRoute exact path='/createraffle'>
                     <CreateRaffle />
                 </PrivateRoute>
