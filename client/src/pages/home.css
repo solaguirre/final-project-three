@@ -13,7 +13,7 @@ body {
   position: relative;
   box-sizing: border-box;
   width: 400px;
-  height: 500px;
+  height: 550px;
   margin: 150px auto 0;
   padding: 20px;
   border-radius: 10px;
@@ -81,11 +81,27 @@ body {
 
 }
 
-.cards {
-  
-}
-
 .card {
   align-self: center;
   background-color:  #fce15e;
+}
+
+.containers {
+  max-height: 100%;
+  background-color: #fce15e;
+  padding: 150px;
+  margin: 0;
+  max-width: 100%;
+}
+
+.form {
+  max-width: 100%;
+}
+
+.signup {
+  max-width: 100%;
+}
+
+.signbutton {
+  padding: 10%;
 }

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/auth';
+import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
 import './home.css';
 
 const Login = () => {
@@ -38,12 +40,11 @@ const Login = () => {
     }
 
     return (
-        <div>
-
-            <div className="container">
+        <>
+            <Container className="containers">
                 <div className="ticket" >
                     <h1>Login Page</h1>
-                    <Form>
+                    <Form className="form">
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
@@ -58,12 +59,14 @@ const Login = () => {
                         <Button onClick={handleSubmit} variant="outline-dark">Submit
                         </Button>
                     </Form>
-                    <p>
-                        Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
-                    </p>
                 </div>
-            </div >
-        </div >
+            </Container>
+            <Row className="signup">
+                <p>Need an account?</p>
+                <Button className="signbutton"variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here
+                </Button>
+            </Row>
+        </>
 
     );
 };
