@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 import './home.css';
 import axios from 'axios';
-import {useParams, Link} from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+
 
 const ViewRaffle = () => {
-    const [raffle, setRaffle] = useState({});
-    const {id} = useParams();
+    const [raffle, setRaffle, itemName, currentEntries, maximumEntries] = useState({});
+    const { id } = useParams();
+
     useEffect(() => {
         fetchRaffle();
-    },);
+    });
 
     async function fetchRaffle() {
-        const { data } = await axios.get('/api/raffles/'+id);
+        const { data } = await axios.get('/api/raffles/' + id);
         setRaffle(data);
     }
-    console.log(raffle);
+
 
     function availableEntries() {
         const availableEntries = raffle.maximumEntries - raffle.currentEntries;
@@ -24,19 +27,21 @@ const ViewRaffle = () => {
     }
 
     return (
-        <div>
-            <Form>
-                <Form.Group controlId="itemName">
-                    <Form.Label>{raffle.itemName}</Form.Label>
+        <>
+            <Container className="container">
+                <Form>
+                    <Form.Group controlId="itemName">
+                        <h2>{itemName}</h2>
 
-                </Form.Group>
-                <h2>{raffle.currentEntries} / {raffle.maximumEntries}</h2>
+                    </Form.Group>
+                    <h2>{currentEntries} / {maximumEntries}</h2>
 
-                <h2>{availableEntries}</h2>
+                    <h2>{availableEntries}</h2>
 
-                <button ><Link to={`/checkout/${id}`}>Submit entries</Link></button>
-            </Form>
-        </div>
+                    <Button ><Link to={`/checkout/${id}`}>Submit entries</Link></Button>
+                </Form>
+            </Container>
+        </>  
 
     );
 };
