@@ -11,9 +11,10 @@ import Raffles from './pages/Raffles';
 import Checkout from './pages/Checkout';
 import Menu from './components/Menu';
 import CreateRaffle from './pages/CreateRaffle';
-import ViewRaffle from './pages/ViewRaffle';
+import ViewRaffle from './pages/viewRaffle';
 import Canceled from './pages/Canceled';
 import About from './pages/About';
+
 function App() {
     // Pull auth token from storage, in case you refresh the page
     const { getToken, logout } = useAuth();
