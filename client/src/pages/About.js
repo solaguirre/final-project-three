@@ -36,9 +36,7 @@ function About() {
                     </Col>
                     <Card.Title>Marisol Aguirre</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to
-                        show that equal height action.
+                        I am an educator and a full-stack developer.
                     </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/solaguirre">Github</Card.Link>
@@ -62,7 +60,7 @@ function About() {
                     <Card.Body>
                         <Card.Title>Lillian Paris</Card.Title>
                         <Card.Text>
-                            This card has supporting text below as a natural lead-in to additional content.{' '}
+                            
                         </Card.Text>
                     </Card.Body>
                     <Card.Body>
@@ -86,9 +84,7 @@ function About() {
                     </Col>
                     <Card.Title>Rhiley Southam</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to
-                        show that equal height action.
+                        
                     </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/orhiley90">Github</Card.Link>

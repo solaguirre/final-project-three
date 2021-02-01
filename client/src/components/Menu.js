@@ -11,8 +11,8 @@ import '../pages/home.css';
 const Menu = () => {
     const { isLoggedIn, logout, getProfile } = useAuth();
     return (
-        <div>
-            <Navbar bg="dark" variant="dark">
+        <>
+            <Navbar fill bg="dark" variant="dark">
                 <Navbar.Brand textcolor="white" href="/">Weffle </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />  
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -37,7 +37,7 @@ const Menu = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        </div>
+        </>
     );
 };
 

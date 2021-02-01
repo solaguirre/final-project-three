@@ -116,3 +116,20 @@ body {
   align-self: center;
   max-width: 100%;
 }
+
+.createraffleform {
+  background-color: white;
+  max-width: 100%;
+  padding: 15px;
+  margin: 0;
+}
+
+.raffle {
+  background-color: #fce15e;
+  align-items: flex-end;
+  padding: 100px;
+}
+
+.raffletitle {
+  text-align: center;
+}

@@ -1,10 +1,9 @@
+import './home.css';
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './home.css';
 import axios from 'axios';
-// import axios from 'axios';
 
 const CreateRaffles = () => {
     // History and location are hooks we can use to manipulate our page's history!
@@ -24,7 +23,7 @@ const CreateRaffles = () => {
     };
 
     function postRaffle(data) {
-        axios.post('/api/raffles', data).then(({data}) => {
+        axios.post('/api/raffles', data).then(({ data }) => {
             toggleRedirect(data.id);
         });
     }
@@ -37,15 +36,12 @@ const CreateRaffles = () => {
         />;
     }
 
-
     return (
-        <div>
-            <h2>
-                Create A Raffle
-            </h2>
-
-
-            <Form>
+        <div className="raffle">
+            <div className="raffletitle">
+                <h1>Create A Raffle</h1>
+            </div>
+            <Form className="createraffleform">
                 <Form.Group controlId="itemName">
                     <Form.Label>Item Description</Form.Label>
                     <Form.Control type="itemName" onChange={event => setItemName(event.target.value)} placeholder="Enter Item to be raffled" />
