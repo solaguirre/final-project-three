@@ -11,10 +11,10 @@ import '../pages/home.css';
 const Menu = () => {
     const { isLoggedIn, logout, getProfile } = useAuth();
     return (
-        <div>
+        <>
             <Navbar bg="dark" variant="dark">
 
-             <Navbar.Brand textcolor="white" href="/">Weffle</Navbar.Brand>
+                <Navbar.Brand textcolor="white" href="/">Weffle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -31,7 +31,7 @@ const Menu = () => {
                                 <Link onClick={() => logout()} to='/' >Logout</Link>
                             </>
                             :
-                            <
+                            <>
                                 <Link to="/signup">Signup</Link> •
                                 <Link to="/login">Login</Link>
                             </>
@@ -39,7 +39,8 @@ const Menu = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        </div>
+        </>
+
     );
 };
 
