@@ -20,14 +20,9 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
             len: [4]
-        },
-        tickets: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue:3
-        },
+        }
     },
-    
+
     {
         // This forces any default 'User' to exclude the password when we query them;
         // this way we don't expose even a hashed password
