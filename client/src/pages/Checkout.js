@@ -80,6 +80,8 @@ function Checkout() {
             // using `result.error.message`.
         }
     };
+
     return message ? (<Message message={message} />) : (<CheckoutSession handleClick={handleClick} />);
+
 }
 export default Checkout;
