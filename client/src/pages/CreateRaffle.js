@@ -44,7 +44,6 @@ const CreateRaffles = () => {
                 Create A Raffle
             </h2>
 
-
             <Form>
                 <Form.Group controlId="itemName">
                     <Form.Label>Item Description</Form.Label>
