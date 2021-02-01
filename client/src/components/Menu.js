@@ -6,30 +6,34 @@ import Nav from 'react-bootstrap/Nav';
 // import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import useAuth from '../hooks/auth';
+import '../pages/home.css';
 
 const Menu = () => {
     const { isLoggedIn, logout, getProfile } = useAuth();
     return (
         <div>
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand textcolor="white" href="/">Weffle</Navbar.Brand>
+
+             <Navbar.Brand textcolor="white" href="/">Weffle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Link to="/notes">About</Link> ||
-                        <Link to="/createraffle">Host</Link> ||
-                        <Link to="/raffles">View Raffles</Link> ||
-                        <Link to="/checkout">WefflePress</Link>
+                        <Link to="/about">About</Link> •
+                        <Link to="/createraffle">Host</Link> •
+                        <Link to="/raffles">View Raffles</Link> •
+                        <Link to="/checkout">WefflePress</Link> •
+
                     </Nav>
                     <Nav className="mr-auto-align">
                         {isLoggedIn() ?
                             <>
                                 Hello, {getProfile().email}
-                                <Link onClick={() => logout()} to='/'>Logout</Link>
+                                <Link onClick={() => logout()} to='/' >Logout</Link>
                             </>
                             :
                             <>
-                                <Link to="/signup">Signup</Link> ||
+
+                                <Link to="/signup">Signup</Link> •
                                 <Link to="/login">Login</Link>
                             </>
                         }

@@ -4,6 +4,8 @@ import useAuth from '../hooks/auth';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './home.css';
+import { Container } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
 
 const Signup = () => {
     const { signup, isLoggedIn } = useAuth();
@@ -40,39 +42,10 @@ const Signup = () => {
 
     return (
         <div>
-            <div className="container">
+            <Container className="containers">
                 <div className="ticket">
-                    <h2>
-                        Signup Page
-                    </h2>
-                    {/* <form onSubmit={handleSubmit}>
-                <label htmlFor='email'>Email:</label>
-                <input
-                    name='email'
-                    placeholder='Email'
-                    type='email'
-                    autoComplete='username'
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                />
-                <br />
-                <label htmlFor='password'>Password:</label>
-                <input
-                    name='password'
-                    placeholder='Password'
-                    type='password'
-                    autoComplete='password'
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
-                />
-                <br />
-                <button type='submit'>Signup</button>
-            </form>
-            <p>
-                Already have an account? <button onClick={() => toggleRedirect(true)}>Login Here</button>
-            </p> */}
-
-                    <Form>
+                    <h2>Signup Page</h2>
+                    <Form className="form">
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
@@ -94,11 +67,13 @@ const Signup = () => {
                         </Form.Group>
                         <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
-                    <p>
-                        Already have an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Login Here</Button>
-                    </p>
+                    <Row>
+                        <p>Already have an account? </p>
+                        <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Login Here</Button>
+                        
+                    </Row>
                 </div>
-            </div>
+            </Container>
 
         </div>
     );

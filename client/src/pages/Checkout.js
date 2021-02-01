@@ -1,24 +1,37 @@
 import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router-dom';
+// import { Container } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import './home.css';
+import { Container } from 'react-bootstrap';
+
 // import './App.css';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
 const CheckoutSession = ({ handleClick }) => (
-    <section>
-        <div className='product'>
-            <img src='.../public/'
-                alt='A weffle ticket in all its glory.' />
-            <div className='description'>
-                <h3>Weffle Ticket</h3>
-                <h5>$5.00</h5>
-            </div>
-        </div>
-        <button type='button' id='checkout-button' role='link' onClick={handleClick}>
-            Checkout
-        </button>
-    </section>
+    <>
+        <Container className="main">
+            <Row className='checkoutticket'>
+                <Col>
+                    <Image src='https://i.imgur.com/fsrBsId.gif'
+                        alt='A weffle ticket in all its glory.' fluid />
+                </Col>
+                <Col className='description'>
+                    <h1>Weffle Ticket</h1>
+                    <h3>$5.00</h3>
+                </Col>
+            </Row>
+            <Button type='button' variant='secondary outline-dark' id='checkout-button' role='link' onClick={handleClick}>
+                    Checkout
+            </Button>
+        </Container>
+
+    </>
 );
 
 const Message = ({ message }) => (
@@ -67,10 +80,8 @@ function Checkout() {
             // using `result.error.message`.
         }
     };
-    return message ? (
-        <Message message={message} />
-    ) : (
-        <CheckoutSession handleClick={handleClick} />
-    );
+
+    return message ? (<Message message={message} />) : (<CheckoutSession handleClick={handleClick} />);
+
 }
 export default Checkout;
