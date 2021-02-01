@@ -11,18 +11,11 @@ import '../pages/home.css';
 const Menu = () => {
     const { isLoggedIn, logout, getProfile } = useAuth();
     return (
-<<<<<<< HEAD
         <>
-            <Navbar fill bg="dark" variant="dark">
-                <Navbar.Brand textcolor="white" href="/">Weffle </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />  
-=======
-        <div>
             <Navbar bg="dark" variant="dark">
 
                 <Navbar.Brand textcolor="white" href="/">Weffle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
->>>>>>> origin
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Link to="/about">About</Link> •
