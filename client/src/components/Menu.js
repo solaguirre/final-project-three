@@ -12,13 +12,13 @@ const Menu = () => {
     return (
         <div>
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand textcolor="white" href="#home">Weffle</Navbar.Brand>
+                <Navbar.Brand textcolor="white" href="/">Weffle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Link to="/">Home</Link>
-                        <Link to="/notes">About</Link>
-                        <Link to="/createraffle">Host</Link>
+                        <Link to="/notes">About</Link> ||
+                        <Link to="/createraffle">Host</Link> ||
+                        <Link to="/raffles">View Raffles</Link> ||
                         <Link to="/checkout">WefflePress</Link>
                     </Nav>
                     <Nav className="mr-auto-align">
@@ -29,7 +29,7 @@ const Menu = () => {
                             </>
                             :
                             <>
-                                <Link to="/signup">Signup</Link>
+                                <Link to="/signup">Signup</Link> ||
                                 <Link to="/login">Login</Link>
                             </>
                         }
