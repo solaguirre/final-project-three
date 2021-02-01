@@ -37,11 +37,20 @@ const CreateRaffles = () => {
     }
 
     return (
+<<<<<<< HEAD
         <div className="raffle">
             <div className="raffletitle">
                 <h1>Create A Raffle</h1>
             </div>
             <Form className="createraffleform">
+=======
+        <div>
+            <h2>
+                Create A Raffle
+            </h2>
+
+            <Form>
+>>>>>>> origin
                 <Form.Group controlId="itemName">
                     <Form.Label>Item Description</Form.Label>
                     <Form.Control type="itemName" onChange={event => setItemName(event.target.value)} placeholder="Enter Item to be raffled" />
