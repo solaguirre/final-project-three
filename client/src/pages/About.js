@@ -1,5 +1,6 @@
 
 import './home.css';
+import sol from './sol.jpeg';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
@@ -24,11 +25,7 @@ function About() {
                 <Card className="card">
                     <Col xs={6} md={4}>
                         <Figure>
-                            <Figure.Image
-                                width={171}
-                                height={180}
-                                alt="Headshot of Marisol."
-                                src="././public/sol.jpeg" roundedCircle />
+                            <img src={sol}></img>
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>
