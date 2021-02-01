@@ -42,35 +42,7 @@ const Login = () => {
 
             <div className="container">
                 <div className="ticket" >
-                    <h2>
-                        Login Page
-                    </h2>
-                    {/* <form onSubmit={handleSubmit}>
-                <label htmlFor='email'>Email:</label>
-                <input
-                    name='email'
-                    placeholder='Email'
-                    type='email'
-                    autoComplete='username'
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                />
-                <br />
-                <label htmlFor='password'>Password:</label>
-                <input
-                    name='password'
-                    placeholder='Password'
-                    type='password'
-                    autoComplete='password'
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
-                />
-                <br />
-                <button type='submit'>Login</button>
-            </form>
-            <p>
-                Need an account? <button onClick={() => toggleRedirect(true)}>Signup Here</button>
-            </p> */}
+                    <h1>Login Page</h1>
                     <Form>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
@@ -83,7 +55,8 @@ const Login = () => {
 
                         </Form.Group>
 
-                        <Button onClick={handleSubmit} variant="outline-dark">Submit</Button>
+                        <Button onClick={handleSubmit} variant="outline-dark">Submit
+                        </Button>
                     </Form>
                     <p>
                         Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>

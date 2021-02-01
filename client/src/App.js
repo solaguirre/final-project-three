@@ -13,6 +13,7 @@ import Menu from './components/Menu';
 import CreateRaffle from './pages/CreateRaffle';
 import ViewRaffle from './pages/ViewRaffle';
 import Canceled from './pages/Canceled';
+import About from './pages/About';
 function App() {
     // Pull auth token from storage, in case you refresh the page
     const { getToken, logout } = useAuth();
@@ -59,6 +60,9 @@ function App() {
                 </Route>
                 <Route exact path='/canceled'>
                     <Canceled />
+                </Route>
+                <Route exact path='/about'>
+                    <About />
                 </Route>
                 <Route exact path='/checkout' component={Checkout} />
                 <PrivateRoute exact path='/createraffle'>
