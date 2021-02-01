@@ -16,7 +16,7 @@ import { Container } from 'react-bootstrap';
 const CheckoutSession = ({ handleClick }) => (
     <>
         <Container className="main">
-            <Row className='ticket'>
+            <Row className='checkoutticket'>
                 <Col>
                     <Image src='https://i.imgur.com/fsrBsId.gif'
                         alt='A weffle ticket in all its glory.' fluid />
@@ -26,11 +26,9 @@ const CheckoutSession = ({ handleClick }) => (
                     <h3>$5.00</h3>
                 </Col>
             </Row>
-            <Row>
-                <Button type='button' variant='secondary outline-dark' id='checkout-button' role='link' onClick={handleClick}>
+            <Button type='button' variant='secondary outline-dark' id='checkout-button' role='link' onClick={handleClick}>
                     Checkout
-                </Button>
-            </Row>
+            </Button>
         </Container>
 
     </>

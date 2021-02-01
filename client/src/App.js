@@ -49,6 +49,9 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
+                <Route path='/viewraffle'>
+                    <ViewRaffle />
+                </Route>
                 <Route path='/viewraffle/:id'>
                     <ViewRaffle />
                 </Route>

@@ -73,6 +73,19 @@ body {
   transform: translate(-25px, 25px) rotate(-55deg);
 }
 
+.checkoutticket {
+  position: relative;
+  box-sizing: border-box;
+  width: 400px;
+  height: 200px;
+  margin: 150px auto 0;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fbfbfb;
+  box-shadow: 2px 2px 15px 0px #ab9b0d;
+
+}
+
 .main {
   background-color: #fce15e;
   padding: 150px;
