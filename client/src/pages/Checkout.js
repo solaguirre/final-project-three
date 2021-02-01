@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import { useParams } from 'react-router-dom';
 // import './App.css';
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
 const CheckoutSession = ({ handleClick }) => (
     <section>
-        <div className="product">
-            <img
-                src="https://i.imgur.com/EHyR2nP.png"
-                alt="The cover of Stubborn Attachments"
-            />
-            <div className="description">
+        <div className='product'>
+            <img src='.../public/'
+                alt='A weffle ticket in all its glory.' />
+            <div className='description'>
                 <h3>Weffle Ticket</h3>
                 <h5>$5.00</h5>
             </div>
         </div>
-        <button type="button" id="checkout-button" role="link" onClick={handleClick}>
+        <button type='button' id='checkout-button' role='link' onClick={handleClick}>
             Checkout
         </button>
     </section>
@@ -31,9 +30,12 @@ const Message = ({ message }) => (
 function Checkout() {
     const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
     const [message, setMessage] = useState('');
+    const {id} = useParams();
+    
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
+        console.log(id);
         if (query.get('success')) {
             setMessage('Order placed! You will receive an email confirmation.');
         }
@@ -46,7 +48,13 @@ function Checkout() {
     const handleClick = async (event) => {
         const stripe = await stripePromise;
         const response = await fetch('/create-checkout-session', {
-            method: 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            method : 'POST',
+            body: JSON.stringify({
+                'id' : id
+            })
         });
         const session = await response.json();
         // When the customer clicks on the button, redirect them to Checkout.
@@ -62,7 +70,7 @@ function Checkout() {
     return message ? (
         <Message message={message} />
     ) : (
-        <CheckoutSession handleClick={handleClick} />
-    );
+            <CheckoutSession handleClick={handleClick} />
+        );
 }
 export default Checkout;

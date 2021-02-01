@@ -6,26 +6,33 @@ const stripe = require('stripe')('sk_test_51I9ilkLEoVxAcGevEaTlvbhBbUnlWxqWqVBfk
 const OUR_DOMAIN = 'https://localhost:3000/checkout';
 
 router.post('/', async (req, res) => {
-    const session = await stripe.checkout.sessions.create({
-        paymentMethodTypes: ['card'],
-        lineItems: [
+    console.log(req.body.id);
+    // const parsedId = JSON.parse(id);
+    const data = {
+        "payment_method_types": ['card'],
+        "line_items": [
             {
-                priceData: {
-                    currency: 'usd',
-                    productData: {
-                        name: 'Weffle Ticket',
-                        //  updated with image of weffle ticket
-                        images: ['https://i.imgur.com/EHyR2nP.png'],
-                    },
-                    unitAmount: 100,
-                },
-                quantity: 1,
+                price : 'price_1IFAyrLEoVxAcGevC1kNltUL',
+                quantity : 1
+                // "price_data": {
+                //     currency: 'usd',
+                //     productData: {
+                //         name: 'Weffle Ticket',
+                //         //  updated with image of weffle ticket
+                //         images: ['https://i.imgur.com/EHyR2nP.png'],
+                //     },
+                //     unitAmount: 100,
+                // },
+                // quantity: 1,
             },
         ],
         mode: 'payment',
-        successURL: `${OUR_DOMAIN}?success=true`,
-        cancelURL: `${OUR_DOMAIN}?canceled=true`,
-    });
+        "success_url": `${OUR_DOMAIN}?success=true`,
+        "cancel_url": `${OUR_DOMAIN}?canceled=true&id=${req.body.id}`,
+    }
+    console.log(data);
+    const session = await stripe.checkout.sessions.create(data).catch(err => console.error(err));
+    console.log(session);
     res.json({ id: session.id });
 });
 
