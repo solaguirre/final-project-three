@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/auth';
+import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
 import './home.css';
 
 const Login = () => {
@@ -38,40 +40,11 @@ const Login = () => {
     }
 
     return (
-        <div>
-
-            <div className="container">
-                <div className="ticket">
-                    <h2>
-                        Login Page
-                    </h2>
-                    {/* <form onSubmit={handleSubmit}>
-                <label htmlFor='email'>Email:</label>
-                <input
-                    name='email'
-                    placeholder='Email'
-                    type='email'
-                    autoComplete='username'
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                />
-                <br />
-                <label htmlFor='password'>Password:</label>
-                <input
-                    name='password'
-                    placeholder='Password'
-                    type='password'
-                    autoComplete='password'
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
-                />
-                <br />
-                <button type='submit'>Login</button>
-            </form>
-            <p>
-                Need an account? <button onClick={() => toggleRedirect(true)}>Signup Here</button>
-            </p> */}
-                    <Form>
+        <>
+            <Container className="containers">
+                <div className="ticket" >
+                    <h1>Login Page</h1>
+                    <Form className="form">
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
@@ -83,14 +56,17 @@ const Login = () => {
 
                         </Form.Group>
 
-                        <Button onClick={handleSubmit} variant="outline-dark">Submit</Button>
+                        <Button onClick={handleSubmit} variant="outline-dark">Submit
+                        </Button>
                     </Form>
-                    <p>
-                        Need an account? <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
-                    </p>
                 </div>
-            </div >
-        </div >
+            </Container>
+            <Row className="signup">
+                <p>Need an account?</p>
+                <Button className="signbutton"variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here
+                </Button>
+            </Row>
+        </>
 
     );
 };

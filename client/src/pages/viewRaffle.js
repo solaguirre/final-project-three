@@ -5,7 +5,7 @@ import './home.css';
 import axios from 'axios';
 import {useParams, Link} from 'react-router-dom';
 
-const ViewRaffles = () => {
+const ViewRaffle = () => {
     const [raffle, setRaffle] = useState({});
     const {id} = useParams();
     useEffect(() => {
@@ -35,4 +35,4 @@ const ViewRaffles = () => {
 
     );
 };
-export default ViewRaffles;
+export default ViewRaffle;
