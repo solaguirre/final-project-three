@@ -12,7 +12,7 @@ const Menu = () => {
     return (
         <div>
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Weffle</Navbar.Brand>
+                <Navbar.Brand textcolor="white" href="#home">Weffle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

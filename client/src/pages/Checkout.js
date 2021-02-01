@@ -30,8 +30,8 @@ const Message = ({ message }) => (
 function Checkout() {
     const stripePromise = loadStripe('pk_test_51I9ilkLEoVxAcGevAMmbHYfJHwTJKS8Ke0E9idRjrddfOntO3THaaFUnFZCjtgSdYJolxpNuopxJBTNif5u5VVnP008s3CP4Ke');
     const [message, setMessage] = useState('');
-    const {id} = useParams();
-    
+    const { id } = useParams();
+
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
@@ -48,12 +48,12 @@ function Checkout() {
     const handleClick = async (event) => {
         const stripe = await stripePromise;
         const response = await fetch('/create-checkout-session', {
-            headers : {
-                'Content-Type' : 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             },
-            method : 'POST',
+            method: 'POST',
             body: JSON.stringify({
-                'id' : id
+                'id': id
             })
         });
         const session = await response.json();
@@ -70,7 +70,7 @@ function Checkout() {
     return message ? (
         <Message message={message} />
     ) : (
-            <CheckoutSession handleClick={handleClick} />
-        );
+        <CheckoutSession handleClick={handleClick} />
+    );
 }
 export default Checkout;

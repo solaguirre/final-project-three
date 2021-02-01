@@ -10,7 +10,7 @@ const ViewRaffles = () => {
     const {id} = useParams();
     useEffect(() => {
         fetchRaffle();
-    },[]);
+    },);
 
     async function fetchRaffle() {
         const { data } = await axios.get('/api/raffles/'+id);
@@ -18,16 +18,21 @@ const ViewRaffles = () => {
     }
     console.log(raffle);
 
+    function availableEntries() {
+        const availableEntries = raffle.maximumEntries - raffle.currentEntries;
+        return availableEntries;
+    }
+
     return (
         <div>
             <Form>
                 <Form.Group controlId="itemName">
-                    <Form.Label>Item Description</Form.Label>
+                    <Form.Label>{raffle.itemName}</Form.Label>
 
                 </Form.Group>
-                <h2>currentEntries / {raffle.maximumEntries}</h2>
+                <h2>{raffle.currentEntries} / {raffle.maximumEntries}</h2>
 
-                <h2>avaialable entries</h2>
+                <h2>{availableEntries}</h2>
 
                 <button ><Link to={`/checkout/${id}`}>Submit entries</Link></button>
             </Form>
