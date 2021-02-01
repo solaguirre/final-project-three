@@ -17,13 +17,13 @@ const Menu = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Link to="/">Home</Link> •
+                        <Link to="/">Home</Link> ||
 
-                        <Link to="/about">About</Link> •
+                        <Link to="/about">About</Link> ||
 
-                        <Link to="/createraffle">Host</Link> •
+                        <Link to="/createraffle">Host</Link> ||
 
-                        <Link to="/checkout">WefflePress</Link> •
+                        <Link to="/checkout">WefflePress</Link> ||
                     </Nav>
                     <Nav className="mr-auto-align">
                         {isLoggedIn() ?
@@ -33,7 +33,7 @@ const Menu = () => {
                             </>
                             :
                             <>
-                                <Link to="/signup">Signup</Link> •
+                                <Link to="/signup">Signup</Link> ||
 
                                 <Link to="/login">Login</Link>
                             </>

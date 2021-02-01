@@ -107,14 +107,10 @@ body {
   max-width: 100%;
 }
 
-.form {
+.thisform {
   max-width: 100%;
 }
 
 .signup {
   max-width: 100%;
-}
-
-.signbutton {
-  padding: 10%;
 }

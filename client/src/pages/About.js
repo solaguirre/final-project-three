@@ -12,7 +12,6 @@ import Col from 'react-bootstrap/Col';
 function About() {
     return (
         <>
-
             <Jumbotron fluid>
                 <Container>
                     <h1>Need Help?</h1>
