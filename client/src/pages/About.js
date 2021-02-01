@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import { Container } from 'react-bootstrap';
 import Figure from 'react-bootstrap/Figure';
-
 import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row';
 
@@ -28,8 +27,8 @@ function About() {
                             <Figure.Image
                                 width={171}
                                 height={180}
-                                alt="171x180"
-                                src="https://ca.slack-edge.com/T0188LPD9KJ-U018HR65J8G-03af0ce853d0-512" roundedCircle />
+                                alt="Headshot of Marisol."
+                                src="././public/sol.jpeg" roundedCircle />
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>
@@ -53,8 +52,8 @@ function About() {
                             <Figure.Image
                                 width={171}
                                 height={180}
-                                alt="171x180"
-                                src="https://ca.slack-edge.com/T0188LPD9KJ-U017F2PGTGX-67664d3e570f-512" roundedCircle />
+                                alt="Headshot of Lilli."
+                                src="././public/lilli.png" roundedCircle />
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>
@@ -78,8 +77,8 @@ function About() {
                             <Figure.Image
                                 width={171}
                                 height={180}
-                                alt="171x180"
-                                src="https://ca.slack-edge.com/T0188LPD9KJ-U0187UXKB5J-acd6a3a7d841-512" roundedCircle />
+                                alt="Headshot of Rhiley."
+                                src="././public/rhiley.jpeg" roundedCircle />
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>

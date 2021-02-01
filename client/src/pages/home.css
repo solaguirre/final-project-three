@@ -108,9 +108,11 @@ body {
 }
 
 .thisform {
+  align-self: center;
   max-width: 100%;
 }
 
 .signup {
+  align-self: center;
   max-width: 100%;
 }

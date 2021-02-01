@@ -63,7 +63,7 @@ const Signup = () => {
                             </Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Receive Updates" />
+                            {/* <Form.Check type="checkbox" label="Receive Updates" /> */}
                         </Form.Group>
                         <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
