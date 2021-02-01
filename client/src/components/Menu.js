@@ -31,8 +31,7 @@ const Menu = () => {
                                 <Link onClick={() => logout()} to='/' >Logout</Link>
                             </>
                             :
-                            <>
-
+                            <
                                 <Link to="/signup">Signup</Link> •
                                 <Link to="/login">Login</Link>
                             </>

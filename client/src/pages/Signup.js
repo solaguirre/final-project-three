@@ -45,7 +45,7 @@ const Signup = () => {
             <Container className="containers">
                 <div className="ticket">
                     <h2>Signup Page</h2>
-                    <Form className="form">
+                    <Form className="thisform">
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
@@ -63,14 +63,13 @@ const Signup = () => {
                             </Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Receive Updates" />
+                            {/* <Form.Check type="checkbox" label="Receive Updates" /> */}
                         </Form.Group>
                         <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
                     <Row>
                         <p>Already have an account? </p>
                         <Button variant="outline-dark" onClick={() => toggleRedirect(true)}>Login Here</Button>
-                        
                     </Row>
                 </div>
             </Container>

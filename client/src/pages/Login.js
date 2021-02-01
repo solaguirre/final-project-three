@@ -4,7 +4,7 @@ import useAuth from '../hooks/auth';
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
+// import Row from 'react-bootstrap/Row';
 import './home.css';
 
 const Login = () => {
@@ -41,10 +41,10 @@ const Login = () => {
 
     return (
         <>
-            <Container className="containers">
+            <Container className="container">
                 <div className="ticket" >
                     <h1>Login Page</h1>
-                    <Form className="form">
+                    <Form className="thisform">
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" onChange={event => setEmail(event.target.value)} placeholder="Enter email" />
@@ -53,19 +53,15 @@ const Login = () => {
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" onChange={event => setPassword(event.target.value)} placeholder="Password" />
-
                         </Form.Group>
-
-                        <Button onClick={handleSubmit} variant="outline-dark">Submit
-                        </Button>
                     </Form>
+                    <div>
+                        <Button onClick={handleSubmit} variant="outline-dark">Submit</Button>
+                        <p>Need an account?</p>
+                        <Button className="signbutton" variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here</Button>
+                    </div>
                 </div>
             </Container>
-            <Row className="signup">
-                <p>Need an account?</p>
-                <Button className="signbutton"variant="outline-dark" onClick={() => toggleRedirect(true)}>Signup Here
-                </Button>
-            </Row>
         </>
 
     );
