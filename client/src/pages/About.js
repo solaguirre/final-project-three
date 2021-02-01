@@ -16,7 +16,7 @@ function About() {
                     <h1>Need Help?</h1>
                     <h3>Contact Us</h3>
                     <p>
-                        We're happy to assist. Contact us contributors below. 
+                        We're happy to assist. Contact us contributors below.
                     </p>
                 </Container>
             </Jumbotron>
@@ -36,7 +36,7 @@ function About() {
                     </Col>
                     <Card.Title>Marisol Aguirre</Card.Title>
                     <Card.Text>
-                        I am an educator and a full-stack developer.
+                        Contact me at the links below.
                     </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/solaguirre">Github</Card.Link>
@@ -57,12 +57,11 @@ function About() {
                             </Figure.Caption>
                         </Figure>
                     </Col>
-                    <Card.Body>
-                        <Card.Title>Lillian Paris</Card.Title>
-                        <Card.Text>
-                            
-                        </Card.Text>
-                    </Card.Body>
+                    <Card.Title>Lillian Paris</Card.Title>
+                    <Card.Text>
+                        Contact me at the links below.
+
+                    </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/lillianparis">Github</Card.Link>
                         <Card.Link href="https://www.linkedin.com/in/lillian-paris-7340401b4/">LinkedIn</Card.Link>
@@ -84,7 +83,8 @@ function About() {
                     </Col>
                     <Card.Title>Rhiley Southam</Card.Title>
                     <Card.Text>
-                        
+                        Contact me at the links below.
+
                     </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/orhiley90">Github</Card.Link>

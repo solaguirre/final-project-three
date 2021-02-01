@@ -95,8 +95,9 @@ body {
 }
 
 .card {
-  align-self: center;
+  align-self: auto;
   background-color:  #fce15e;
+  padding: 10px;
 }
 
 .containers {
@@ -126,7 +127,7 @@ body {
 
 .raffle {
   background-color: #fce15e;
-  align-items: flex-end;
+  align-items: center;
   padding: 100px;
 }
 
