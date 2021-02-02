@@ -6,8 +6,7 @@ import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
-
-const ViewRaffle = () => {
+const View= () => {
     const [raffle, setRaffle, itemName, currentEntries, maximumEntries] = useState({});
     const { id } = useParams();
 
@@ -19,7 +18,6 @@ const ViewRaffle = () => {
         const { data } = await axios.get('/api/raffles/' + id);
         setRaffle(data);
     }
-
 
     function availableEntries() {
         const availableEntries = raffle.maximumEntries - raffle.currentEntries;
@@ -42,7 +40,7 @@ const ViewRaffle = () => {
                 </Form>
             </Container>
         </>  
-
     );
 };
-export default ViewRaffle;
+
+export default View;
