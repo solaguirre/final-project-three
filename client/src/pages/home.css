@@ -1,6 +1,5 @@
 .section-1, .container {
   background-color: #fce15e;
-  
   padding: 150px;
   margin: 0;
   max-width: 100%;
@@ -119,18 +118,44 @@ body {
 }
 
 .createraffleform {
+  align-self: auto;
   background-color: white;
   max-width: 100%;
   padding: 15px;
-  margin: 0;
 }
 
 .raffle {
   background-color: #fce15e;
-  align-items: center;
-  padding: 100px;
+  align-items: auto;
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .raffletitle {
+  text-align: auto;
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.pics {
+  border-radius: 50%;
+  max-width: 100%;
+  align-self: start;
+}
+
+.checkoutbutton {
+  padding:12px;  
+  align-self: center;
+}
+
+.checkout {
+  padding: 75px;
+  align-self: center;
+}
+
+.description {
+  padding: 50px;
   text-align: center;
 }

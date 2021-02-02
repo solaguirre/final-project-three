@@ -1,6 +1,8 @@
 
 import './home.css';
-import sol from './sol.jpeg';
+import sol from '../assets/sol.jpeg';
+import lilli from '../assets/lilli.jpeg';
+import rhiley from '../assets/rhiley.jpeg';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
@@ -25,7 +27,9 @@ function About() {
                 <Card className="card">
                     <Col xs={6} md={4}>
                         <Figure>
-                            <img src={sol}></img>
+                            <Col>
+                                <img className="pics" src={sol} alt="headshot of sol"></img>
+                            </Col>
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>
@@ -44,11 +48,9 @@ function About() {
                 <Card>
                     <Col xs={6} md={4}>
                         <Figure>
-                            <Figure.Image
-                                width={171}
-                                height={180}
-                                alt="Headshot of Lilli."
-                                src="././public/lilli.png" roundedCircle />
+                            <Col>
+                                <img className="pics" src={lilli}alt="headshot of Lilli"></img>
+                            </Col>
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>
@@ -68,11 +70,9 @@ function About() {
                 <Card>
                     <Col xs={6} md={4}>
                         <Figure>
-                            <Figure.Image
-                                width={171}
-                                height={180}
-                                alt="Headshot of Rhiley."
-                                src="././public/rhiley.jpeg" roundedCircle />
+                            <Col>
+                                <img className="pics" src={rhiley} alt="headshot of Rhiley"></img>
+                            </Col>
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>
