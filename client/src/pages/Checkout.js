@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router-dom';
 // import { Container } from 'react-bootstrap';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './home.css';
 import { Container } from 'react-bootstrap';
@@ -16,18 +14,20 @@ import { Container } from 'react-bootstrap';
 const CheckoutSession = ({ handleClick }) => (
     <>
         <Container className="main">
-            <Row className="ticket">
-                <Col>
-                    <img src={wefflepic} alt="Weffle Ticket"></img>
-                </Col>
-                <Col className='description'>
+            <div className="ticket">
+                <text className='description'>
                     <h1>Weffle Ticket</h1>
                     <h3>$0.00</h3>
-                </Col>
-                <Button className="checkoutbutton" type='button' variant='secondary outline-dark' id='checkout-button' role='link' onClick={handleClick}>
-                    Checkout
-                </Button>
-            </Row>
+                </text>
+                <div className="checkout">
+                    <img src={wefflepic} alt="Weffle Ticket"></img>
+                </div>
+                <div className="checkout">
+                    <Button className="checkoutbutton" type='button' variant='secondary outline-dark' id='checkout-button' role='link' onClick={handleClick}>
+                        Checkout
+                    </Button>
+                </div>
+            </div>
         </Container>
 
     </>
