@@ -22,7 +22,6 @@ const Menu = () => {
                         <Link to="/createraffle">Host</Link> •
                         <Link to="/raffles">View Raffles</Link> •
                         <Link to="/checkout">WefflePress</Link> •
-
                     </Nav>
                     <Nav className="mr-auto-align">
                         {isLoggedIn() ?
@@ -40,7 +39,6 @@ const Menu = () => {
                 </Navbar.Collapse>
             </Navbar>
         </>
-
     );
 };
 

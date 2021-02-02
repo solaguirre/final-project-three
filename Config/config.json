@@ -1,0 +1,25 @@
+
+{
+  "development": {
+    "username": "root",
+    "password": ".17Letitgo",
+    "database": "JAWS_DB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": ".17Letitgo",
+    "database": "project_3_local",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "username": "root",
+    "password": ".17Letitgo",
+    "database": "JAWSDB_URL",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

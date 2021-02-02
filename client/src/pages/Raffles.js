@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 const Raffles = function () {
     const [raffles, setRaffles] = useState([]);
@@ -18,21 +19,22 @@ const Raffles = function () {
         setRaffles(data);
     }
     return (
-        <div>
-            <h2>Raffles</h2>
+        <>
+            <Container className="container">
+                <h2>Raffles</h2>
 
-            {raffles.map(raffle => {
-                return (
-                    <>
-                        {raffle.itemName}
-                        <button key={raffle.id}>
-                            <Link to={`/viewraffle/${raffle.id}`}>View Raffle </Link>
-                        </button>
-                    </>
-                );
-            })}
-
-        </div>
+                {raffles.map(raffle => {
+                    return (
+                        <>
+                            {raffle.itemName}
+                            <button key={raffle.id}>
+                                <Link to={`/viewraffle/${raffle.id}`}>View Raffle </Link>
+                            </button>
+                        </>
+                    );
+                })}
+            </Container>
+        </>
     );
 };
 

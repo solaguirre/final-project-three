@@ -1,10 +1,11 @@
+import './home.css';
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './home.css';
 import axios from 'axios';
-// import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const CreateRaffles = () => {
     // History and location are hooks we can use to manipulate our page's history!
@@ -24,7 +25,7 @@ const CreateRaffles = () => {
     };
 
     function postRaffle(data) {
-        axios.post('/api/raffles', data).then(({data}) => {
+        axios.post('/api/raffles', data).then(({ data }) => {
             toggleRedirect(data.id);
         });
     }
@@ -37,50 +38,49 @@ const CreateRaffles = () => {
         />;
     }
 
-
     return (
-        <div>
-            <h2>
-                Create A Raffle
-            </h2>
+        <>
+            <Container className="raffle">
+                <Row className="raffletitle">
+                    <h1>Create A Raffle</h1>
+                </Row>
+                <Form className="createraffleform">
+                    <Form.Group controlId="itemName">
+                        <Form.Label>Item Description</Form.Label>
+                        <Form.Control type="itemName" onChange={event => setItemName(event.target.value)} placeholder="Enter Item to be raffled" />
+                        <Form.Text className="text-muted">
+                            This is how your item will be named
+                        </Form.Text>
+                    </Form.Group>
 
+                    <Form.Group controlId="itemCode">
+                        <Form.Label>Item Code</Form.Label>
+                        <Form.Control type="itemCode" onChange={event => setItemCode(event.target.value)} placeholder="Item Code" />
+                        <Form.Text id="itemCode" muted>
+                            This will be hidden from view but will be revealed to the Winner
+                        </Form.Text>
+                    </Form.Group>
 
-            <Form>
-                <Form.Group controlId="itemName">
-                    <Form.Label>Item Description</Form.Label>
-                    <Form.Control type="itemName" onChange={event => setItemName(event.target.value)} placeholder="Enter Item to be raffled" />
-                    <Form.Text className="text-muted">
-                        This is how your item will be named
-                    </Form.Text>
-                </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Maximum Entries</Form.Label>
+                        <Form.Control type="maximumEntries" onChange={event => setMaximumEntries(event.target.value)} placeholder="Maximum Entries" />
+                        <Form.Text id="maximumEntries" muted>
+                            This will limit your maximum number of entries (currently 50)
+                        </Form.Text>
+                    </Form.Group>
 
-                <Form.Group controlId="itemCode">
-                    <Form.Label>Item Code</Form.Label>
-                    <Form.Control type="itemCode" onChange={event => setItemCode(event.target.value)} placeholder="Item Code" />
-                    <Form.Text id="itemCode" muted>
-                        This will be hidden from view but will be revealed to the Winner
-                    </Form.Text>
-                </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Minimum Entries</Form.Label>
+                        <Form.Control type="minimumEntries" onChange={event => setMinimumEntries(event.target.value)} placeholder="Maximum Entries" />
+                        <Form.Text id="minimumEntries" muted>
+                            This will limit your minimum number of entries (currently 5)
+                        </Form.Text>
+                    </Form.Group>
+                    <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
+                </Form>
 
-                <Form.Group>
-                    <Form.Label>Maximum Entries</Form.Label>
-                    <Form.Control type="maximumEntries" onChange={event => setMaximumEntries(event.target.value)} placeholder="Maximum Entries" />
-                    <Form.Text id="maximumEntries" muted>
-                        This will limit your maximum number of entries (currently 50)
-                    </Form.Text>
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>Minimum Entries</Form.Label>
-                    <Form.Control type="minimumEntries" onChange={event => setMinimumEntries(event.target.value)} placeholder="Maximum Entries" />
-                    <Form.Text id="minimumEntries" muted>
-                        This will limit your minimum number of entries (currently 5)
-                    </Form.Text>
-                </Form.Group>
-                <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
-            </Form>
-
-        </div>
+            </Container>
+        </>
     );
 };
 export default CreateRaffles;

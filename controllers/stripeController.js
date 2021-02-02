@@ -14,16 +14,7 @@ router.post('/', async (req, res) => {
             {
                 price : 'price_1IFAyrLEoVxAcGevC1kNltUL',
                 quantity : 1
-                // "price_data": {
-                //     currency: 'usd',
-                //     productData: {
-                //         name: 'Weffle Ticket',
-                //         //  updated with image of weffle ticket
-                //         images: ['https://i.imgur.com/EHyR2nP.png'],
-                //     },
-                //     unitAmount: 100,
-                // },
-                // quantity: 1,
+              
             },
         ],
         mode: 'payment',
