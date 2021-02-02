@@ -134,3 +134,13 @@ body {
 .raffletitle {
   text-align: center;
 }
+
+.pics {
+  border-radius: 50%;
+  max-width: 100%;
+  align-self: start;
+}
+
+.checkoutbutton {
+  
+}

@@ -1,8 +1,8 @@
+import wefflepic from '../assets/weffleicon.jpeg';
 import { useState, useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useParams } from 'react-router-dom';
 // import { Container } from 'react-bootstrap';
-import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -16,19 +16,18 @@ import { Container } from 'react-bootstrap';
 const CheckoutSession = ({ handleClick }) => (
     <>
         <Container className="main">
-            <Row className='checkoutticket'>
+            <Row className="ticket">
                 <Col>
-                    <Image src='https://i.imgur.com/fsrBsId.gif'
-                        alt='A weffle ticket in all its glory.' fluid />
+                    <img src={wefflepic} alt="Weffle Ticket"></img>
                 </Col>
                 <Col className='description'>
                     <h1>Weffle Ticket</h1>
-                    <h3>$5.00</h3>
+                    <h3>$0.00</h3>
                 </Col>
-            </Row>
-            <Button type='button' variant='secondary outline-dark' id='checkout-button' role='link' onClick={handleClick}>
+                <Button className="checkoutbutton" type='button' variant='secondary outline-dark' id='checkout-button' role='link' onClick={handleClick}>
                     Checkout
-            </Button>
+                </Button>
+            </Row>
         </Container>
 
     </>
@@ -57,7 +56,7 @@ function Checkout() {
                 'Order canceled -- continue to shop around and checkout when you are ready.'
             );
         }
-    }, []);
+    }, [id]);
     const handleClick = async (event) => {
         const stripe = await stripePromise;
         const response = await fetch('/create-checkout-session', {
