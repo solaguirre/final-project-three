@@ -5,9 +5,9 @@ module.exports = function () {
         throw new Error(`Invalid NODE_ENV in .env file. Should be one of ${ACCEPTED_ENVS.join(', ')}`);
     } else if (typeof process.env.SECRET !== 'string' || process.env.SECRET.length < 10) {
         throw new Error('Invalid Secret supplied in env. Good Secret required.');
-    } else if (process.env.NODE_ENV === 'production' && (process.env.JAWSDB_URL === undefined || process.env.JAWSDB_URL === '')) {
+    } else if (process.env.NODE_ENV === 'production' && (process.env.JAWSDB_URL === undefined || process.env.JAWSDB_URL === '.17Letitgo')) {
         throw new Error('Production database not properly configured. Supply a URL');
-    } else if (process.env.NODE_ENV !== 'production' && (process.env.LOCALDB_URL === undefined || process.env.LOCALDB_URL === '')) {
+    } else if (process.env.NODE_ENV !== 'production' && (process.env.LOCALDB_URL === undefined || process.env.LOCALDB_URL === '.17Letitgo')) {
         throw new Error('No connection URL supplied for local DB');
     }
 };
