@@ -11,8 +11,9 @@ import Raffles from './pages/Raffles';
 import Checkout from './pages/Checkout';
 import Menu from './components/Menu';
 import CreateRaffle from './pages/CreateRaffle';
-import ViewRaffle from './pages/ViewRaffle';
+import View from './pages/View';
 import Canceled from './pages/Canceled';
+import Success from './pages/Success';
 import About from './pages/About';
 
 function App() {
@@ -50,11 +51,11 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-                <Route path='/viewraffle'>
-                    <ViewRaffle />
+                <Route path='/view'>
+                    <View />
                 </Route>
-                <Route path='/viewraffle/:id'>
-                    <ViewRaffle />
+                <Route path='/view/:id'>
+                    <View />
                 </Route>
                 <Route path='/raffles'>
                     <Raffles />
@@ -62,14 +63,18 @@ function App() {
                 <Route exact path='/checkout/:id'>
                     <Checkout />
                 </Route>
-                <Route exact path='/canceled'>
+                <Route exact path='/canceled/:id'>
                     <Canceled />
+                </Route>
+                <Route exact path='/success/:id'>
+                    <Success />
                 </Route>
                 <Route exact path='/about'>
                     <About />
                 </Route>
                 <Route exact path='/checkout' component={Checkout} />
                 <Route exact path='/canceled' component={Canceled} />
+                <Route exact path='/success' component={Success} />
                 <PrivateRoute exact path='/createraffle'>
                     <CreateRaffle />
                 </PrivateRoute>

@@ -53,7 +53,7 @@ function Checkout() {
         }
         if (query.get('canceled')) {
             setMessage(
-                'Order canceled -- continue to shop around and checkout when you are ready.'
+                'Your order has been canceled -- continue to shop around and checkout when you are ready.'
             );
         }
     }, [id]);
@@ -74,6 +74,8 @@ function Checkout() {
             sessionId: session.id,
         });
         if (result.error) {
+            
+            console.log(result.error.message);
             // If `redirectToCheckout` fails due to a browser or network
             // error, display the localized error message to your customer
             // using `result.error.message`.
