@@ -39,7 +39,7 @@ function App() {
 
     return (
         <Router>
-            <Menu></Menu>
+            <Menu />
             <Switch>
                 <Route exact path='/'>
                     <Home />
@@ -69,6 +69,7 @@ function App() {
                     <About />
                 </Route>
                 <Route exact path='/checkout' component={Checkout} />
+                <Route exact path='/canceled' component={Canceled} />
                 <PrivateRoute exact path='/createraffle'>
                     <CreateRaffle />
                 </PrivateRoute>

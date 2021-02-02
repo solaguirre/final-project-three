@@ -11,7 +11,7 @@ import '../pages/home.css';
 const Menu = () => {
     const { isLoggedIn, logout, getProfile } = useAuth();
     return (
-        <div>
+        <>
             <Navbar bg="dark" variant="dark">
 
                 <Navbar.Brand textcolor="white" href="/">Weffle</Navbar.Brand>
@@ -22,7 +22,6 @@ const Menu = () => {
                         <Link to="/createraffle">Host</Link> •
                         <Link to="/raffles">View Raffles</Link> •
                         <Link to="/checkout">WefflePress</Link> •
-
                     </Nav>
                     <Nav className="mr-auto-align">
                         {isLoggedIn() ?
@@ -39,7 +38,7 @@ const Menu = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        </div>
+        </>
     );
 };
 

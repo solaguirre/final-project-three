@@ -1,5 +1,6 @@
 
 import './home.css';
+import sol from './sol.jpeg';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
@@ -16,7 +17,7 @@ function About() {
                     <h1>Need Help?</h1>
                     <h3>Contact Us</h3>
                     <p>
-                        We're happy to assist. Contact us contributors below. 
+                        We're happy to assist. Contact us contributors below.
                     </p>
                 </Container>
             </Jumbotron>
@@ -24,11 +25,7 @@ function About() {
                 <Card className="card">
                     <Col xs={6} md={4}>
                         <Figure>
-                            <Figure.Image
-                                width={171}
-                                height={180}
-                                alt="Headshot of Marisol."
-                                src="././public/sol.jpeg" roundedCircle />
+                            <img src={sol}></img>
                             <Figure.Caption>
                                 Junior Full-Stack Developer
                             </Figure.Caption>
@@ -36,9 +33,7 @@ function About() {
                     </Col>
                     <Card.Title>Marisol Aguirre</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to
-                        show that equal height action.
+                        Contact me at the links below.
                     </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/solaguirre">Github</Card.Link>
@@ -59,12 +54,11 @@ function About() {
                             </Figure.Caption>
                         </Figure>
                     </Col>
-                    <Card.Body>
-                        <Card.Title>Lillian Paris</Card.Title>
-                        <Card.Text>
-                            This card has supporting text below as a natural lead-in to additional content.{' '}
-                        </Card.Text>
-                    </Card.Body>
+                    <Card.Title>Lillian Paris</Card.Title>
+                    <Card.Text>
+                        Contact me at the links below.
+
+                    </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/lillianparis">Github</Card.Link>
                         <Card.Link href="https://www.linkedin.com/in/lillian-paris-7340401b4/">LinkedIn</Card.Link>
@@ -86,9 +80,8 @@ function About() {
                     </Col>
                     <Card.Title>Rhiley Southam</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to
-                        show that equal height action.
+                        Contact me at the links below.
+
                     </Card.Text>
                     <Card.Body>
                         <Card.Link href="https://github.com/orhiley90">Github</Card.Link>
