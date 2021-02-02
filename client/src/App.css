@@ -5,7 +5,7 @@
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-content: center;
     height: 100vh;
@@ -149,5 +149,5 @@
 
   .nav-link{
     font-family: 'Roboto', sans-serif;
-    color: #2699FB !important;
+    color: #409ae9 !important;
   }

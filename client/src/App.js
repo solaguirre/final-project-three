@@ -39,7 +39,7 @@ function App() {
 
     return (
         <Router>
-            <Menu></Menu>
+            <Menu/>
             <Switch>
                 <Route exact path='/'>
                     <Home />
