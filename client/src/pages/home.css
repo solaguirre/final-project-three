@@ -159,3 +159,9 @@ body {
   padding: 50px;
   text-align: center;
 }
+
+.pics2 {
+  border-radius: 50%;
+  max-width: 50%;
+  align-self: flex-end;
+}
