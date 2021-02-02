@@ -10,9 +10,6 @@ CREATE TABLE users (
   PRIMARY KEY(id)
 );
 
-
-
-
 DROP DATABASE IF EXISTS raffles_db;
 CREATE DATABASE raffles_db;
 USE raffles_db;
@@ -26,10 +23,6 @@ CREATE TABLE raffles (
   winning_user_id INT NOT NULL,
   PRIMARY KEY(id)
 );
-
-
-
-
 
 DROP DATABASE IF EXISTS card_db;
 CREATE DATABASE card_db;

@@ -20,7 +20,7 @@ const Menu = () => {
                     <Nav className="mr-auto">
                         <Link to="/about">About</Link> •
                         <Link to="/createraffle">Host</Link> •
-                        <Link to="/raffles">View Raffles</Link> •
+                        <Link to="/raffles">Active Raffles</Link> •
                         <Link to="/checkout">WefflePress</Link> •
                     </Nav>
                     <Nav className="mr-auto-align">
