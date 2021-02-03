@@ -5,7 +5,7 @@ const isAuthenticated = require('../utils/middleware').isAuthenticated;
 /**
  * Raffle Read - All
  */
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     db.Raffle.findAll(req.query)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
@@ -14,14 +14,13 @@ router.get('/', function(req, res) {
 /**
  * Raffle Read - One
  */
-router.get('/:id', function(req, res) {
-    db.Raffle.findByPk(req.params.id)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+router.get('/:id', function (req, res) {
+    db.Raffle.findByPk(req.params.id, { include: db.User })
+        .then(dbModel => res.json())
+        .catch(err => res.status(422).json(err))
 });
 
-
-router.post('/', isAuthenticated, function(req, res) {
+router.post('/', isAuthenticated, function (req, res) {
     db.Raffle.scope('withPassword')
         .create(req.body)
         .then(dbModel => res.json(dbModel))
@@ -31,8 +30,8 @@ router.post('/', isAuthenticated, function(req, res) {
 /**
  * Raffle - Update
  */
-router.put('/:id', function(req, res) {
-    db.Raffle.update(req.body, { where: { id: req.params.id }})
+router.put('/:id', function (req, res) {
+    db.Raffle.update(req.body, { where: { id: req.params.id } })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
@@ -40,8 +39,8 @@ router.put('/:id', function(req, res) {
 /**
  * Raffle - Delete
  */
-router.delete('/:id', function(req, res) {
-    db.Raffle.destroy({ where: { id: req.params.id }})
+router.delete('/:id', function (req, res) {
+    db.Raffle.destroy({ where: { id: req.params.id } })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });

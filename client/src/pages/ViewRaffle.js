@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import './home.css';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
-const View= () => {
+const ViewRaffle = function () {
     const [raffle, setRaffle, itemName, currentEntries, maximumEntries] = useState({});
     const { id } = useParams();
 
     useEffect(() => {
         fetchRaffle();
-    });
+    }, [id]);
 
     async function fetchRaffle() {
         const { data } = await axios.get('/api/raffles/' + id);
@@ -27,20 +28,27 @@ const View= () => {
     return (
         <>
             <Container className="container">
-                <Form>
+                <Card>
                     <Form.Group controlId="itemName">
                         <h2>{itemName}</h2>
 
                     </Form.Group>
-                    <h2>{currentEntries} / {maximumEntries}</h2>
 
-                    <h2>{availableEntries}</h2>
+                    {raffle.map(raffle => {
+                        return (
+                            <>
+                                {raffle.itemName}
+                                <h2>{currentEntries} / {maximumEntries}</h2>
 
-                    <Button ><Link to={`/checkout/${id}`}>Submit entries</Link></Button>
-                </Form>
+                                <h2>{availableEntries}</h2>
+                            </>
+                        );
+                    })}
+                    <Button className="checkoutbutton" variant="dark"><Link to='/checkout'>Submit entries</Link></Button>
+                </Card>
             </Container>
-        </>  
+        </>
     );
 };
 
-export default View;
+export default ViewRaffle;
