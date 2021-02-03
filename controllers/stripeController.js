@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 const stripe = require('stripe')('sk_test_51I9ilkLEoVxAcGevEaTlvbhBbUnlWxqWqVBfkzSBhx9AP5q4rhtUtwF1rkqZHbH19XYbBujvyWMDFau466l6XivY00wUf0WFzF');
 
-const OUR_DOMAIN = 'http://localhost:3000/checkout';
+const OUR_DOMAIN = 'http://www.weffle.me/';
 
 router.post('/', async (req, res) => {
     console.log(req.body.id);

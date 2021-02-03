@@ -33,7 +33,7 @@ const CreateRaffles = () => {
     if (redirectToViewRaffle) {
         // If someone goes to login, this transfers the redirect
         return <Redirect to={{
-            pathname: `/viewRaffle/${redirectToViewRaffle}`,
+            pathname: `/raffles/${redirectToViewRaffle}`,
         }}
         />;
     }
@@ -80,8 +80,6 @@ const CreateRaffles = () => {
                         <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
                 </Row>
-
-
             </Container>
         </>
     );
