@@ -80,8 +80,6 @@ const CreateRaffles = () => {
                         <Button variant="outline-dark" onClick={handleSubmit}>Submit</Button>
                     </Form>
                 </Row>
-
-
             </Container>
         </>
     );

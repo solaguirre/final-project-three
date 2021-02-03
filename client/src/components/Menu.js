@@ -26,7 +26,7 @@ const Menu = () => {
                     <Nav className="mr-auto-align">
                         {isLoggedIn() ?
                             <>
-                                Hello, {getProfile().email}
+                                Hi, {getProfile().email}
                                 <Link onClick={() => logout()} to='/' >Logout</Link>
                             </>
                             :
