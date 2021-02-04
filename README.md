@@ -23,19 +23,21 @@ For development purposes please continue reading.
 
 # Table of Contents
     
- * [Description](#description)
+* [Description](#description)
 
- * [User Story](#usersory)
+* [User Story](#usersory)
     
- * [License](#license)
+* [Visit](#visit)
     
- * [Contributors](#contributors)
+* [Contributors](#contributors)
     
- * [Installation](#installation)
+* [Installation](#installation)
 
 * [Technology](#technology)
     
- * [Questions](#questions)
+* [Questions](#questions)
+
+* [License](#license)
 
 # Description 
 A weffle is a web raffle. Weffle is a online raffle app that allows users to create a raffle easily on our site. Users are able to raffle off any itemWelcome to Weffle! Users may login or signup, search for game codes, view winners, host and bid on items. This webpage features React, Sequelize, APIs, Node and Express Web Server, as well as many other helpful tools. 
@@ -44,7 +46,7 @@ A weffle is a web raffle. Weffle is a online raffle app that allows users to cre
 
 As a raffle enthusiast I want to have a user friendly and visually appealing application that allows me to post and bid on items with purchased tickets. 
 
-# Visit Our Web Page
+# Visit 
 Visit the Weffle Press and buy some [Weffles](www.weffle.me)! We know you're feeling lucky!
 
 ### While you are there...
