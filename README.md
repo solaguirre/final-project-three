@@ -27,13 +27,13 @@ For development purposes please continue reading.
 
  * [User Story](#usersory)
     
- * [Installation](#installation)
-    
  * [License](#license)
     
- * [Contributing](#contributing)
+ * [Contributors](#contributors)
     
- * [Tests](#tests)
+ * [Installation](#installation)
+
+* [Technology](#technology)
     
  * [Questions](#questions)
 
