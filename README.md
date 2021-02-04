@@ -1,15 +1,83 @@
-# Weffle - Game Code Raffle
 
-Welcome to Weffle! Users may login or signup, search for game codes, view winners, host and bid on items. This webpage features React, Sequelize, APIs, Node and Express Web Server, as well as many other helpful tools. 
+<p align="center">
+<i class="fas fa-globe-americas"></i>
+
+  <h3 align="center"><strong> Weffle</strong></h3>
+
+  <p align="center">
+      As a raffle enthusiast I want to have a user friendly and visually appealing application that allows me to post and bid on items with purchased tickets.
+    <br />
+    <br />
+    <a href="www.weffle.me"><strong>Visit our page » www.weffle.me</strong></a>
+    <br />
+    <br />
+   
+</p>
+</p>
+
+For development purposes please continue reading.
+
+# [Weffle - A Web Raffle App](www.weffle.me)
+
+  ![license](https://img.shields.io/badge/License-MIT-green.svg)
+
+# Table of Contents
+    
+ * [Description](#description)
+
+ * [User Story](#usersory)
+    
+ * [Installation](#installation)
+    
+ * [License](#license)
+    
+ * [Contributing](#contributing)
+    
+ * [Tests](#tests)
+    
+ * [Questions](#questions)
+
+# Description 
+A weffle is a web raffle. Weffle is a online raffle app that allows users to create a raffle easily on our site. Users are able to raffle off any itemWelcome to Weffle! Users may login or signup, search for game codes, view winners, host and bid on items. This webpage features React, Sequelize, APIs, Node and Express Web Server, as well as many other helpful tools. 
 
 ## User Story
 
 As a raffle enthusiast I want to have a user friendly and visually appealing application that allows me to post and bid on items with purchased tickets. 
 
-## Available Scripts
+# Visit Our Web Page
+Visit the Weffle Press and buy some [Weffles](www.weffle.me)! We know you're feeling lucky!
+
+### While you are there...
+
+## Create an account
+
+[![Screen-Shot-2021-02-03-at-8-53-12-PM.png](https://i.postimg.cc/k4wmhzyH/Screen-Shot-2021-02-03-at-8-53-12-PM.png)](https://postimg.cc/5YHTXPT5)
+
+## Have some fun while you declutter, host a raffle, make someones day 
+[![Screen-Shot-2021-02-03-at-8-54-29-PM.png](https://i.postimg.cc/TPVGnp5f/Screen-Shot-2021-02-03-at-8-54-29-PM.png)](https://postimg.cc/94QvhXBn)
+
+## View Current Raffles
+
+[![Screen-Shot-2021-02-02-at-7-17-58-PM.png](https://i.postimg.cc/43B2Cgrp/Screen-Shot-2021-02-02-at-7-17-58-PM.png)](https://postimg.cc/8FfmWqkC)
+
+## Purchase some tickets! 
+
+[![Screen-Shot-2021-02-03-at-8-54-55-PM.png](https://i.postimg.cc/zBqN78TW/Screen-Shot-2021-02-03-at-8-54-55-PM.png)](https://postimg.cc/zL24XmtX)
+
+## Are you a winner? Of course you are! Here is an example fo the e-mail you get when you sign up and when you win a prize!
+
+
+
+
+# Installation
 
 In the project directory, you can run:
 
+```
+npm run start
+```
+
+Other available scripts:
 ```
         "start": Start the react development server
         "build": Builds a production react app
@@ -24,21 +92,27 @@ The structure of the client application, as produced, is replicated below, with 
 
 ```
 - public
-    * favicon.ico
     * index.html
     * manifest.json
     * robots.txt
 - src
     - components
-        * Navbar.js
-        * NoteForm.js
+        * Menu(Navbar).js
+        * Raffle.js
     - hooks
         * auth.js
     - pages
         * Home.js
-        * Login.js
-        * Notes.js
+        * About.js
         * Signup.js
+        * Login
+        * CrateRaffle
+        * Canceled.js
+        * Canceled.js
+        * Checkout.js
+        * Success.js
+        * View Raffle.js
+        * home.css
     * App.css
     * App.js
     * index.js
@@ -49,46 +123,54 @@ The structure of the client application, as produced, is replicated below, with 
 * README.md
 ```
 
-
-
 ## Deployment
 
-Deploy the server. It deploys this!
-
-## Contact
-Marisol Aguirre
-Github - https://github.com/solaguirre
-Portfolio -
-Email - soulaguirre@gmail.com
-Lillian Paris
-Github - https://github.com/lillianparis
-Portfolio -
-Email - lillian.paris529@gmail.com 
-Rhiley Southam
-Github - https://github.com/orhiley90 
-Portfolio -
-Email - orhiley90@yahoo.com 
-
+You can view our deployed project at the official [Weffle Web Page](http://www.weffle.me/). It was  deployed via Heroku at [Weffle App](https://weffle.herokuapp.com/)
 
 ## Built With
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-* [Create React App](https://create-react-app.dev/) - The CRA boilerplate that underpins this application.
+* [Create React App](https://create-react-app.dev/) - The CRA boilerplate that underpins this application.  You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 * [React](https://reactjs.org/) - React
 * [React Router Dom](https://www.npmjs.com/package/react-router-dom) - Our React Router w/DOM bindings.
 * [Axios](https://www.npmjs.com/package/axios) -  Use for API calls. If I had my druthers, we would us fetch, but axios offers us way too nice a library for defaulting headers/response interceptors.
 * [Use Persisted State](https://www.npmjs.com/package/use-persisted-state) - A hook for a local storage state. I'm too lazy to write this.
+* [Stripe for Developers](https://stripe.com/) - Checkout made simple! Integration examples from [Github](https://github.com/stripe-samples)
+* [Node.js](https://nodejs.org/en/) - a JavaScript runtime built on Chrome's V8 JavaScript engine.
+* 
 
-## Further Reading
+## Questions 
+ If you have any questions, contact us below. We look forward to hearing from you.
+  
 
-* [React Router for Web](https://reactrouter.com/web/guides/quick-start) - The documentation for routing. Very important! Other cool things:
-    * [Sidebar Example](https://reactrouter.com/web/example/sidebar)
-    * [Guide](https://reactrouter.com/web/guides/primary-components)
-* [useHooks useAuth](https://usehooks.com/useAuth/) - Primary source for how I wrote the useAuth for this App, based on the useAuth hook that was written here, and then used in the [React Router Authentication Redirect Example](https://reactrouter.com/web/example/auth-workflow)
-* [Component Libaries](https://blog.bitsrc.io/13-top-react-component-libraries-for-2020-488cc810ca49) - Literally just the topic google result. But these are all good ideas. I personally prefer Material, but it's pretty complex. Semantic has been fun after Joseph gave it a whirl!
+# Contributors
+Marisol Aguirre
+* [Send me an email](mailto:soulaguirre@gmail.com)
+* [Contact me via Github](https://github.com/solaguirre)
+* [Checkout my portfolio]()
+
+Lillian Paris
+* [Send me an email](mailto:lillian.paris529@gmail.com)
+* [Contact me via Github](https://github.com/lillianparis)
+* [Checkout my portfolio]()
+
+Rhiley Southam
+* [Send me an email](mailto:orhiley90@yahoo.com)
+* [Contact me via Github](https://github.com/orhiley90 )
+* [Checkout my portfolio]()
+
+
+# Technology
+
+* [Create React App](https://create-react-app.dev/) - The CRA boilerplate that underpins this application.  You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* [React](https://reactjs.org/) - React
+* [React Router Dom](https://www.npmjs.com/package/react-router-dom) - Our React Router w/DOM bindings.
+* [Axios](https://www.npmjs.com/package/axios) -  Use for API calls. If I had my druthers, we would us fetch, but axios offers us way too nice a library for defaulting headers/response interceptors.
+* [Use Persisted State](https://www.npmjs.com/package/use-persisted-state) - A hook for a local storage state. I'm too lazy to write this.
+* [Stripe for Developers](https://stripe.com/) - Checkout made simple! Integration examples from [Github](https://github.com/stripe-samples)
+* Webhooks
+* [Node.js](https://nodejs.org/en/) - a JavaScript runtime built on Chrome's V8 JavaScript engine.
+* Sequelize/MySQL Workbench
+* VS Code
 
 ## License
 
